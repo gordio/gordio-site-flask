@@ -1,0 +1,21 @@
+{% macro render_field(field) %}
+			{% if field.flags.required %}
+				{{ field.label(class="required") }}
+			{% else %}
+				{{ field.label() }}
+			{% endif %}
+			{% if field.errors %}
+				<ul class="errors">
+					{% for error in field.errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+			{% if field.flags.required %}
+				{{ field(required=true, **kwargs) }}
+			{% else %}
+				{{ field(**kwargs) }}
+			{% endif %}
+{% endmacro %}
+
+{# vim: set fdm=marker fdc=0 ts=3 sw=3 tw=100 fo-=t ff=unix ft=htmljinja: #}

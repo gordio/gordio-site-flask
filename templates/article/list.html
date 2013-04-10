@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+
+
+{% block css %}
+	{{ super() }}
+{% endblock %}
+
+
+{% block title %}Blog —{{ " " }}{{ super() }}{% endblock %}
+
+{% block content %}
+	<div class="sixteen columns">
+	{% include "messages.html" %}
+	</div>
+
+	{% for article in articles %}
+		<article class="list-item eight columns">
+			<a href="{{ url_for('article_view', slug=article.slug) }}" title="Открыть материал «{{ article.title }}»">
+				<h4>{{ article.title }}</h4>
+			</a>
+			<div class="tags">
+				{% for tag in article.tags %}
+					<a href="{{ url_for('articles_tagged', tag_slug=tag.slug) }}">{{ tag.title }}</a>
+				{% endfor %}
+			</div>
+			<div class="description">
+				{{ article.description|markdown }}
+			</div>
+			<a class="more" href="{{ url_for('article_view', slug=article.slug) }}#cat">Продолжить чтение » </a>
+		</article>
+	{% else %}
+		<p style="margin: 50px 0; text-align: center;">No articles</p>
+	{% endfor %}
+{% endblock %}

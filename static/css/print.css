@@ -1,0 +1,56 @@
+
+* {
+	color: #000;
+	background: transparent;
+	text-shadow: none;
+
+
+	-webkit-box-shadow: none;
+	   -moz-box-shadow: none;
+	    -ms-box-shadow: none;
+	     -o-box-shadow: none;
+	        box-shadow: none;
+}
+
+html {
+	background-color: #FFF;
+}
+
+/* Hide navigation */
+nav {
+	display: none;
+}
+
+/* Show link destinations in brackets after the link text */
+a[href]:after {
+	content: " (" attr(href) ") ";
+}
+
+a[href] {
+	font-weight: bold;
+	text-decoration: underline;
+	color: #06c;
+	border: none;
+}
+
+/* Don't show link destinations for JavaScript or anchor links */
+a[href^="javascript:"]:after, a[href^="#"]:after {
+	content: "";
+}
+
+
+/* Show abbr title value in brackets after the text */
+abbr[title]:after {
+	content: " (" attr(title) ")";
+}
+
+figure {
+	margin-bottom: 1em;
+	overflow: hidden;
+}
+
+figure img {
+	border: 1px solid #000;
+}
+
+/* vim: set fdm=marker fdc=0 ts=3 sw=3 tw=100 fo-=t ff=unix ft=css:*/

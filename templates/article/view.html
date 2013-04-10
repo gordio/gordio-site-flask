@@ -1,0 +1,51 @@
+{% extends 'article/list.html' %}
+
+
+{% block css %}
+	{{ super() }}
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/code.css") }}" media="all">
+{% endblock %}
+
+
+{% block js %}
+	{{ super() }}
+	{#<link type="text/javascript" href="https://apis.google.com/js/plusone.js">#}
+	<link href="{{ url_for('static', filename="js/highlight.pack.js") }}"
+	onload="hljs.tabReplace = '    '; hljs.initHighlighting(); hljs.initHighlightingOnLoad()">
+{% endblock %}
+
+
+{% block meta %}
+<meta itemprop="name" content="{{ article.title }}">
+<meta itemprop="description" content="{{ article.description }}">
+{% endblock %}
+
+{% block title %}{{ article.title }}{{ " " }}—{{ " " }}{{ super() }}{% endblock %}
+
+{% block content %}
+
+<article class="article-page">
+	<div class="sixteen columns">
+		<aside id="widgets">
+			{#<a class="FlattrButton" style="display:none !important;" href="{{ url_for('article_view', slug=article.slug) }}" title="Gordio Blog: {{ article.title }}">{{ article.description|markdown }}</a> #}
+			<div class="g-plusone" data-size="tall"></div>
+		</aside>
+
+		<h1 id="cat" class="no-bottom">{{ article.title }}</h1>
+		<div class="tags">
+			{% for tag in article.tags %}
+				<a href="{{ url_for('articles_tagged', tag_slug=tag.slug) }}">{{ tag.title }}</a>
+			{% endfor %}
+		</div>
+		<hr class="no-top half-bottom">
+		{% include "messages.html" %}
+	</div>
+
+
+	<div class="sixteen columns content">
+		{{ article.description|markdown }}
+		<span id="cat"></span>
+		{{ article.content|markdown }}
+	</div>
+</article>
+{% endblock %}

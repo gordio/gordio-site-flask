@@ -1,0 +1,72 @@
+.message {
+	margin: 5px 0px;
+	padding: 10px 12px;
+	color: #222;
+	background: #EEE;
+	border: 1px solid #AAA;
+	outline: 0;
+
+
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	        border-radius: 4px;
+
+	-webkit-box-shadow: inset 1px 1px rgba(255, 255, 255, 0.6);
+	   -moz-box-shadow: inset 1px 1px rgba(255, 255, 255, 0.6);
+	        box-shadow: inset 1px 1px rgba(255, 255, 255, 0.6), 0 2px 0 rgba(0, 0, 0, 0.07);
+
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	    -ms-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.message p {
+	margin-bottom: 0px;
+}
+.message.error:before,
+.message.info:before,
+.message.warning:before,
+.message.success:before {
+	padding-right: 0.2em;
+	font-weight: bold;
+}
+.message.error:before {
+	content: "Error: ";
+}
+.message.info:before {
+	content: "Info: ";
+}
+.message.warning:before {
+	content: "Warning: ";
+}
+.message.success:before {
+	content: "Success: ";
+}
+/*.message:after {
+	content: "×";
+	position: relative;
+	float: right;
+	top: -2px;
+	font-size: 200%;
+}*/
+
+.message.info {
+	color: #052633;
+	background: #E6F8FF;
+	border-color: #9DCBE0;
+}
+.message.warning {
+	color: #332D05;
+	background: #FFFCE6;
+	border-color: #D9C32B;
+}
+.message.error {
+	color: #1A0303;
+	background: #FAE6E6;
+	border-color: #E08E86;
+}
+.message.success {
+	color: #0F1A03;
+	background: #EFF8E4;
+	border-color: #B0CC8D;
+}

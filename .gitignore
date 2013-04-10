@@ -1,0 +1,7 @@
+*.~
+*.pyc
+*.pyo
+*.mo
+.env
+db.sqlite
+static/cache

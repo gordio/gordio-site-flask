@@ -1,0 +1,21 @@
+Host: www.gordio.pp.ua
+Sitemap: http://www.gordio.pp.ua/sitemap.xml
+
+User-agent: Yandex
+Crawl-delay: 1
+Disallow: /search/
+Disallow: /static/
+
+User-agent: Google
+Crawl-delay: 1
+Disallow: /search/
+Disallow: /static/
+
+User-agent: Slurp
+Crawl-delay: 5
+Disallow: /search/
+Disallow: /static/
+
+User-agent: *
+Crawl-delay: 10
+Disallow: /static/

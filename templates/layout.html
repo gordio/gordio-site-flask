@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Gordienko Oleg{% endblock %}</title>
+	{% block meta %}
+	{% endblock %}
+	<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+	<link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename="favicon.png") }}">
+	{#<link title="Subscribe blog posts" type="application/rss+xml" rel="alternate" href="http://feeds.feedburner.com/gordio">#}
+
+
+	{% block css %}
+	{% assets filters="cssmin", output="cache/base.css",
+		"css/base.css", "css/skeleton.css", "css/layout.css", "css/messages.css" %}
+		<link rel="stylesheet" href="{{ ASSET_URL }}">
+	{% endassets %}
+	{% assets filters="datauri,cssmin", output="cache/images.css", "css/font-awesome.css", "css/images.css" %}
+		<link rel="stylesheet" href="{{ ASSET_URL }}">
+	{% endassets %}
+	{% endblock %}
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	{% block js %}
+	{% endblock %}
+
+	<script async src="{{ url_for('static', filename="js/loader.js") }}"></script>
+</head>
+<body>
+
+	{% include "nav.html" %}
+
+	<section id="content" class="page container">
+	{% block content %}
+
+	{% endblock %}
+	</section>
+</body>
+</html>
+{# vim: set ft=htmljinja fdm=marker ts=4 sw=4 tw=100 fo-=t ff=unix: #}

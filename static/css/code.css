@@ -1,0 +1,119 @@
+/* Code hilight styles
+ * vim: noexpandtab: tabstop=2: softtabstop=2: shiftwidth=2
+ * Author Gordio <Gordi.Oleg@gmail.com> */
+
+/* Fix code default border */
+pre code * {
+	border: none !important;
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .lisp .title,
+pre .subst {
+	color: #AA5800;
+	/*font-weight: bold;*/
+}
+pre .number,
+pre .hexcolor {
+	color: #6B3479;
+}
+pre .decorator {
+	color: #694080;
+}
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+	color: #407500;
+}
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+	color: #8B6F32;
+}
+
+pre .function {
+	color: #3D6C8E;
+}
+pre .tag,
+pre .css .keyword,
+pre .html .keyword,
+pre .tag .title,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal
+}
+pre .class,
+pre .class .title,
+pre .tex .command {
+	color: #000;
+}
+pre .regexp {
+  color: #A80028;
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .ruby .symbol .keyword,
+pre .ruby .symbol .keymethods,
+pre .lisp .keyword,
+pre .tex .special {
+  color: #990073
+}
+pre .attribute,
+pre .variable,
+pre .instancevar,
+pre .lisp .body {
+  color: #176EB3;
+}
+pre .title,
+pre .id {
+	color: #077DD3;
+	/*font-weight: bold;*/
+}
+pre .javascript .title,
+pre .lisp .title,
+pre .subst {
+  font-weight: normal
+}
+pre .params {
+	/*	color: #f008F0;*/
+}
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+	color: #050000;
+}
+
+pre .builtin,
+pre .built_in,
+pre .lisp .title {
+	color: #3D6C8E;
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
+}
+
+pre .tex .formula {
+  opacity: 0.5;
+}
+

@@ -1,0 +1,294 @@
+/* Reset {{{
+ * ======================================================================= */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym,
+address, big, cite, code, del, dfn, em, img, ins, kbd, q, s,
+samp, small, strike, strong, sub, sup, tt, var, b, u, i,
+center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure, figcaption, footer,
+header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* }}} */
+
+/* Basic {{{
+ * ======================================================================= */
+body {
+	background: #FDFDFD;
+	/*font: 1em/1.25em "Helvetica", "HelveticaNeue", "Helvetica Neue", "Arial", sans-serif;*/
+	font: 1em/1.25em "Verdana", "Geneva", sans-serif;
+	/*font: 1em/1.25em "Lucida Sans Unicode", "Lucida Grande", sans-serif;*/
+	/*font: 1em/1.25em "Tahoma", "Geneva", sans-serif;*/
+	color: #333;
+
+
+	text-rendering: optimizeSpeed;
+	-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+	-webkit-text-size-adjust: 100%;
+}
+/* }}} */
+
+/* Typography {{{
+ * ======================================================================= */
+h1, h2, h3, h4, h5, h6 {
+	/*font-family: "Times New Roman", "Times", serif;*/
+	font-family: "Georgia", "Times New Roman", serif;
+	font-weight: normal;
+	color: #222;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	font-weight: inherit;
+}
+
+h1 {
+	margin-bottom: 12px;
+	font-size: 32px;
+	line-height: 36px;
+}
+
+h2 {
+	margin-bottom: 8px;
+	font-size: 1.75em;
+	line-height: 1em;
+}
+
+h3 {
+	margin-bottom: 6px;
+	font-size: 26px;
+	line-height: 28px;
+}
+
+h4 {
+	margin-bottom: 4px;
+	font-size: 22px;
+	line-height: 24px;
+}
+
+h5 {
+	font-size: 20px;
+	line-height: 20px;
+}
+
+h6 {
+	font-size: 17px;
+	line-height: 18px;
+}
+
+/* bottom */
+p, blockquote,
+ul, ol {
+	margin-bottom: 1em;
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+	color: #2F2F2F;
+}
+
+small {
+	font-size: 80%;
+}
+
+abbr, acronym {
+	border-bottom: 0.1px dotted;
+	cursor: help;
+}
+
+/* Blockquotes */
+blockquote, blockquote p {
+	color: #666;
+	font-style: italic;
+}
+
+blockquote {
+	padding: 5px 20px 0 19px;
+}
+
+blockquote cite {
+	display: block;
+	clear: both;
+	text-align: right;
+	color: #555;
+}
+
+blockquote cite:before {
+	content: "\2014\2003";
+}
+
+blockquote cite a,
+blockquote cite a:visited {
+	color: #555;
+}
+
+hr {
+	border: solid #ddd;
+	border-width: 1px 0 0;
+	clear: both;
+	margin: 0.5em 0 1em;
+	height: 0;
+}
+
+/* Code */
+pre,
+code {
+	font-family: "Lucida Console", "Monaco", monospace;
+}
+/* }}} */
+
+/* Links {{{
+ * ======================================================================= */
+a,
+a:visited {
+	color: #333;
+	text-decoration: underline;
+	outline: 0;
+}
+
+a:hover,
+a:focus {
+	color: #000;
+}
+
+p a,
+p a:visited {
+	line-height: inherit;
+}
+/* }}} */
+
+/* Lists {{{
+ * ======================================================================= */
+ul {
+	list-style: none outside;
+}
+
+ol {
+	list-style: decimal;
+}
+
+ol,
+ul,
+ul.square,
+ul.circle,
+ul.disc {
+	margin-left: 1.8em;
+}
+
+ul        { list-style: disc outside; }
+ul.square { list-style: square outside; }
+ul.circle { list-style: circle outside; }
+ul.disc   { list-style: disc outside; }
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+	margin: 0.225em 0 0.225em 1.8em;
+}
+
+ul ul li,
+ul ol li,
+ol ol li,
+ol ul li {
+	margin-bottom: 6px;
+}
+
+li {
+	line-height: 18px;
+	margin-bottom: 7px;
+}
+
+ul.large li {
+	line-height: 1.1em;
+}
+
+li p {
+	line-height: 21px;
+}
+/* }}} */
+
+/* Misc {{{
+ * ======================================================================= */
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* remove outline */
+:focus { outline: none; }
+::-moz-focus-inner { border: 0; } /* fix moz outline */
+
+.no-top      { margin-top: 0 !important; }
+.no-bottom   { margin-bottom: 0 !important; }
+.half-bottom { margin-bottom: 0.5em !important; }
+.full-bottom { margin-bottom: 1em !important; }
+
+.left        { float: left; }
+.right       { float: right; }
+
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+/* }}} */
+
+/* Elements {{{
+ * ======================================================================= */
+kbd {
+	display: inline-block;
+	margin: 0px 0.1em;
+	padding: 0px 0.4em;
+	color: #444;
+	font-family: "Ubuntu Mono", monospace;
+	font-style: normal;
+	background-color: #FAFAFA;
+	border: 1px solid #CCC;
+	text-shadow: 0px 1px 0px #FFF;
+
+	-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .2), inset 0 0 1px #FFF;
+	   -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, .2), inset 0 0 1px #FFF;
+	        box-shadow: 0 1px 0 rgba(0, 0, 0, .2), inset 0 0 1px #FFF;
+
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;
+}
+
+p code,
+ul code {
+	padding: 0px 3px;
+	border: 1px solid rgba(128, 128, 128, 0.1);
+
+
+	border-radius: 3px;
+}
+/* }}} */
+
+/* vim: set fdm=marker fdc=0 ts=3 sw=3 tw=100 fo-=t ff=unix ft=css: */

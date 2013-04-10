@@ -1,0 +1,17 @@
+			{% for field in form %}
+				{% if field.name != "csrf_token" %}
+					{% if field.flags.required %} <div class="required"> {% endif %}
+
+					{{ field.label }}
+					{% if field.errors %}
+						<ul class="errors">
+							{% for error in field.errors %}
+							<li>{{ error }}</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+					{{ field }}
+
+					{% if field.flags.required %} </div> {% endif %}
+				{% endif %}
+			{% endfor %}
