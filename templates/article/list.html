@@ -21,7 +21,7 @@
 			</a>
 			<div class="tags">
 				{% for tag in article.tags %}
-					<a href="{{ url_for('articles_tagged', tag_slug=tag.slug) }}">{{ tag.title }}</a>
+					<a class="tag" href="{{ url_for('articles_tagged', tag_slug=tag.slug) }}">{{ tag.title }}</a>{% if loop.last %}{% else %},{% endif %}
 				{% endfor %}
 			</div>
 			<div class="description">

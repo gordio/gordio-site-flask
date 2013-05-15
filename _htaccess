@@ -1,3 +1,7 @@
+#RewriteCond %{HTTP_HOST} !^www\.gordio\.pp\.ua$
+#RewriteRule ^(.*)$ http://www.gordio.pp.ua/$1 [L,R=301]
+
+
 AddHandler cgi-script .py
 DirectoryIndex run.py
 

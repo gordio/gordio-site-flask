@@ -31,10 +31,10 @@
 			<div class="g-plusone" data-size="tall"></div>
 		</aside>
 
-		<h1 id="cat" class="no-bottom">{{ article.title }}</h1>
+		<h1 id="cat" class="title no-bottom">{{ article.title }}</h1>
 		<div class="tags">
 			{% for tag in article.tags %}
-				<a href="{{ url_for('articles_tagged', tag_slug=tag.slug) }}">{{ tag.title }}</a>
+				<a class="tag" href="{{ url_for('articles_tagged', tag_slug=tag.slug) }}">{{ tag.title }}</a>{% if loop.last %}{% else %},{% endif %}
 			{% endfor %}
 		</div>
 		<hr class="no-top half-bottom">

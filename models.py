@@ -14,17 +14,19 @@ tags = db.Table('tags',
 
 
 class Article(db.Model):
-	id = db.Column(db.Integer, primary_key=True)
-	title = db.Column(db.String(100))
-	slug = db.Column(db.String(80), unique=True)
-	content = db.Column(db.Text)
-	tags = db.relationship('Tag', secondary=tags, backref=db.backref('articles', lazy='dynamic'))
-	pub_date = db.Column(db.DateTime)
-	upd_date = db.Column(db.DateTime)
+	id          = db.Column(db.Integer, primary_key=True)
+	title       = db.Column(db.String(100))
+	slug        = db.Column(db.String(80), unique=True)
+	description = db.Column(db.Text)
+	content     = db.Column(db.Text)
+	tags        = db.relationship('Tag', secondary=tags, backref=db.backref('articles', lazy='dynamic'))
+	pub_date    = db.Column(db.DateTime)
+	upd_date    = db.Column(db.DateTime)
 
-	def __init__(self, title, content, tags=None, slug=None, pub_date=None, upd_date=None):
+	def __init__(self, title, description, content, tags=None, slug=None, pub_date=None, upd_date=None):
 		self.title = title
 		self.slug = slug or slughifi(title)
+		self.description = description
 		self.content = content
 		self.tags = tags or []
 		self.pub_date = pub_date or datetime.datetime.utcnow()

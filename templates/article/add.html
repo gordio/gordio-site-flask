@@ -37,6 +37,10 @@
 		</div>
 
 		<div class="sixteen columns">
+			{{ render_field(form.description, class="full", rows=2, placeholder="Markdown document description", max=50) }}
+		</div>
+
+		<div class="sixteen columns">
 			{{ render_field(form.content, class="full", rows=14, placeholder="Markdown document body", max=50) }}
 
 			{{ render_field(form.tags, class="full", placeholder="Tags for document") }}

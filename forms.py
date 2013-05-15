@@ -30,6 +30,10 @@ class ArticleForm(wtf.Form):
 		validators.Required(),
 		validators.Length(min=3, max=200),
 	])
+	description = wtf.TextField("Description", [
+		validators.Required(),
+		validators.Length(min=50, max=1000),
+	], widget=wtf.TextArea())
 	content = wtf.TextField("Content", [
 		validators.Required(),
 		validators.Length(min=100, max=5000),

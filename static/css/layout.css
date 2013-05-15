@@ -2,7 +2,7 @@ body {
 	background: #EAEAEA;
 }
 
-h1 {
+h1.title {
 	font-family: 'Ultra', 'Arial', sans-serif;
 	text-transform: uppercase;
 	color: #333;
@@ -141,18 +141,23 @@ nav li.active a {
 }
 
 
+/* TAGS */
 .tags {
 }
-.tags a {
+.tags .tag {
+	display: inline-block;
 	color: #90786F;
 	text-decoration: none;
 }
-.tags a:hover {
+.tags .tag + .tag {
+	margin-left: 5px;
+}
+.tags .tag:hover {
 	color: #543;
 	text-decoration: underline;
 }
 /* HACK */
-.tags > a > img {
+.tags > a.tag > img {
 	vertical-align: middle;
 	padding-bottom: 2px;
 }
@@ -254,6 +259,9 @@ article img.right {
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 	nav ul.container {
 		width: 440px;
+	}
+	nav ul.container li a {
+		padding: 8px 4px;
 	}
 	.services .three.columns {
 		width: 130px;

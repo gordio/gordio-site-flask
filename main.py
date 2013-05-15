@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 from flask import Flask, g, render_template, flash, redirect, session, request, url_for, abort
 from flask.ext.assets import Environment
 import sqlite3
@@ -9,6 +10,7 @@ from datetime import datetime
 # PREPARE {{{
 app = Flask(__name__, static_url_path='')
 app.config.from_pyfile('config.py')
+
 
 assets = Environment(app)
 
@@ -40,14 +42,48 @@ if not app.config['DEBUG']:
 # }}}
 
 
+# Auth {{{
+
+from functools import wraps
+from flask import request, Response
+
+
+def check_auth(username, password):
+	"""This function is called to check if a username /
+	password combination is valid.
+	"""
+	return username == app.config["LOGIN"] and password == app.config["PASSWORD"]
+
+def authenticate():
+	"""Sends a 401 response that enables basic auth"""
+	return Response(
+		'Could not verify your access level for that URL.\n'
+		'You have to login with proper credentials', 401,
+		{'WWW-Authenticate': 'Basic realm="Login Required"'})
+
+def requires_auth(f):
+	@wraps(f)
+	def decorated(*args, **kwargs):
+		auth = request.authorization
+		if not auth or not check_auth(auth.username, auth.password):
+			return authenticate()
+		return f(*args, **kwargs)
+	return decorated
+
+# }}}
+
+
 # VIEWS
 @app.route('/')
 def index():
 	return render_template('index.html', **locals())
 
 
+
+
 # Articles {{{
 @app.route('/article/add/', methods=['GET', 'POST'])
+@requires_auth
 def article_add():
 	from models import Article, Tag, db
 	from forms import ArticleForm
@@ -64,7 +100,7 @@ def article_add():
 			for t in tags_raw:
 				t = t.strip()
 				try:
-					tags += [Tag.query.filter(title==t)[0]]
+					tags += [Tag.query.filter(Tag.title==t)[0]]
 				except Exception:
 					tags += [Tag(t)]
 
@@ -75,6 +111,7 @@ def article_add():
 		else:
 			article = Article(
 				form.title.data,
+				form.description.data,
 				form.content.data,
 				tags=tags,
 				slug=form.slug.data,
@@ -101,6 +138,7 @@ def article_view(slug):
 
 
 @app.route('/article/<slug>/edit/', methods=['GET', 'POST'])
+@requires_auth
 def article_edit(slug):
 	""" Render edit article form by <slug> or update data from `POST` """
 	from models import Article, Tag, db
@@ -113,6 +151,7 @@ def article_edit(slug):
 		# init form data from object
 		form.title.data = article.title
 		form.slug.data = article.slug
+		form.description.data = article.description
 		form.content.data = article.content
 		tags = [t.title for t in article.tags]
 		for t in tags:
@@ -126,6 +165,7 @@ def article_edit(slug):
 		if form.validate():
 			article.title = form.title.data
 			article.slug = form.slug.data
+			article.description = form.description.data
 			article.content = form.content.data
 			article.pub_date = datetime.strptime(form.pub_date.data, '%Y-%m-%d %H:%M:%S')
 
@@ -139,14 +179,16 @@ def article_edit(slug):
 			tags_raw = form.tags.data.split(',')
 			for t in tags_raw:
 				t = t.strip()
+
+				# Get or create
 				try:
-					article.tags += [Tag.query.filter(title==t)[0]]
+					article.tags += [Tag.query.filter(Tag.title == t)[0]]
 				except Exception:
 					article.tags += [Tag(t)]
 
 			db.session.commit()
 
-			flash("Updated. Sucessfull update article.", 'success')
+			flash("Article updated success.", 'success')
 			return redirect(url_for('article_view', slug=form.slug.data))
 
 	return render_template('article/edit.html', **locals())
@@ -162,12 +204,12 @@ def articles(page):
 
 	for article in articles:
 		try:
-			desc, cont = article['content'].split("<!-- cut -->")
+			desc, cont = article.content.split(u"<!-- cut -->")
 		except Exception:
 			# FIXME: Use first paragraph
 			pass
 		else:
-			article.update({'description': desc, 'content': cont})
+			article.description = desc
 
 	return render_template('article/list.html', **locals())
 
@@ -195,10 +237,11 @@ def contacts():
 	form = ContactForm(request.form)
 
 	if request.method == 'POST' and form.validate():
+
 		# Проверка на частоту отправок
 		send_time = session.get('contacts_send_next_message_time')
 		if send_time > int(time.time()):
-			flash("Very frequently", 'error')
+			flash("Very frequantly.", 'error')
 			return render_template('contacts.html', **locals())
 
 
@@ -217,10 +260,10 @@ def contacts():
 		try:
 			mail.sendmail('noreply@gordio.pp.ua', ['gordio@ya.ru',], msg.as_string())
 		except Exception:
-			flash("Sorry, unknown error detected.", 'error')
+			flash("Unknown server error.", 'error')
 			mail.close()
 		else:
-			flash("Message send successful", 'success')
+			flash("Message sended.", 'success')
 			# записываем дату отправки
 			session['contacts_send_next_message_time'] = int(time.time()) + (60 * 15) # 15 минут
 			mail.close()

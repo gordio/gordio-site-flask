@@ -3,3 +3,6 @@ Flask-Assets
 cssmin
 Flask-Script
 Markdown
+Flask-SQLAlchemy
+Flask-WTF
+Flask-Login
