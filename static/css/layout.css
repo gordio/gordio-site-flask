@@ -120,6 +120,20 @@ nav li.active a {
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#3B3B3B), from(#2B2B2B));
 	background-image: -moz-linear-gradient(100% 100% 90deg, #3B3B3B, #2B2B2B);
 }
+
+
+/* icons */
+nav a:before,
+nav span:before {
+	content: '';
+	margin-right: 2px;
+	padding: 16px 16px;
+}
+
+nav .about:before    { background: url("./../img/icons/nav.png") 0px center repeat-x; }
+nav .projects:before { background: url("./../img/icons/nav.png") -32px center no-repeat; }
+nav .articles:before { background: url("./../img/icons/nav.png") -64px center no-repeat; }
+nav .contacts:before { background: url("./../img/icons/nav.png") -96px center no-repeat; }
 /* }}} */
 
 
