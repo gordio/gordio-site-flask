@@ -195,10 +195,6 @@ article img.right {
 	margin: 4px 0 .2em .5em;
 }
 
-.article-page h1.title {
-	margin-top: 0px;
-}
-
 .article-page #widgets {
 	float: right;
 	height: 65px;
@@ -206,6 +202,17 @@ article img.right {
 }
 .article-page .content {
 	padding: 0 10px;
+}
+
+button.donate {
+	background: #FFDD84;
+	cursor: pointer;
+
+	background-image: -moz-linear-gradient(100% 100% 90deg, #FBC654, #FFDD84);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#FBC654), from(#FFDD84));
+}
+button.donate:active {
+	background: #FBC654;
 }
 /* }}} */
 
