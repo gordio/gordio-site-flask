@@ -204,6 +204,12 @@ article img.right {
 	padding: 0 10px;
 }
 
+.article-page .content pre > code {
+	border: none !important;
+	padding: 0;
+	margin: 0;
+}
+
 button.donate {
 	background: #FFDD84;
 	cursor: pointer;
