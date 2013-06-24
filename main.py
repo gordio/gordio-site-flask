@@ -200,7 +200,7 @@ def articles(page):
 	""" Render all articles """
 	from models import Article
 
-	articles = Article.query.filter(Article.pub_date < datetime.now()).order_by(Article.pub_date)
+	articles = Article.query.filter(Article.pub_date < datetime.now()).order_by(Article.pub_date.desc())
 
 	for article in articles:
 		try:
