@@ -66,25 +66,27 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 h1 {
-	margin-bottom: 12px;
+	margin-top: 0.8em;
+	margin-bottom: 0.4em;
 	font-size: 32px;
 	line-height: 36px;
 }
 
 h2 {
-	margin-bottom: 8px;
+	margin-top: 0.8em;
+	margin-bottom: 0.2em;
 	font-size: 1.75em;
 	line-height: 1em;
 }
 
 h3 {
-	margin-bottom: 6px;
+	margin-bottom: 0.15em;
 	font-size: 26px;
 	line-height: 28px;
 }
 
 h4 {
-	margin-bottom: 4px;
+	margin-bottom: 0.1em;
 	font-size: 22px;
 	line-height: 24px;
 }
@@ -199,7 +201,7 @@ ul,
 ul.square,
 ul.circle,
 ul.disc {
-	margin-left: 1.8em;
+	margin-left: 1.4em;
 }
 
 ul        { list-style: disc outside; }

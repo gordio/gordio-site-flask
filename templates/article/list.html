@@ -29,6 +29,9 @@
 			</div>
 			<a class="more" href="{{ url_for('article_view', slug=article.slug) }}#cat">Продолжить чтение » </a>
 		</article>
+		{% if loop.index is divisibleby(2) %}
+		<span class="clear"></span>
+		{% endif %}
 	{% else %}
 		<p style="margin: 50px 0; text-align: center;">No articles</p>
 	{% endfor %}

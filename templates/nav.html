@@ -3,11 +3,11 @@
 		<li {% if request.endpoint == "index" %}class="active"{% endif %}>
 			<a class="about" href="{{ url_for('index') }}">About</a>
 		</li>
-		<li class="disabled">
-			<span class="projects">Projects</span>
-		</li>
 		<li {% if "article" in request.endpoint %}class="active"{% endif %}>
 			<a class="articles" href="{{ url_for('articles') }}">Blog</a>
+		</li>
+		<li>
+			<a class="projects" href="http://code.gordio.pp.ua/">Projects</a>
 		</li>
 		<li {% if request.endpoint == "contacts" %}class="active"{% endif %}>
 			<a class="contacts" href="{{ url_for('contacts') }}">Contacts</a>

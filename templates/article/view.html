@@ -22,8 +22,8 @@
 
 {% block title %}{{ article.title }}{{ " " }}—{{ " " }}{{ super() }}{% endblock %}
 
-{% block content %}
 
+{% block content %}
 <article class="article-page">
 	<div class="sixteen columns">
 		<aside id="widgets">
@@ -40,7 +40,6 @@
 		<hr class="no-top half-bottom">
 		{% include "messages.html" %}
 	</div>
-
 
 	<div class="sixteen columns content">
 		{{ article.description|markdown }}

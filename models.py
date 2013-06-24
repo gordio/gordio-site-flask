@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+# Models file
 from flask.ext.sqlalchemy import SQLAlchemy
 import datetime
 from main import app
@@ -71,5 +73,28 @@ class Tag(db.Model):
 	#def get_by_title(cls, slug):
 		#return cls.get
 
+
+class FeedBack(db.Model):
+	id        = db.Column(db.Integer, primary_key=True)
+	name      = db.Column(db.String(100))
+	email     = db.Column(db.String(100))
+	content   = db.Column(db.Text)
+	send_date = db.Column(db.DateTime)
+
+	def __init__(self, name, email, content, send_date=None):
+		self.name = title
+		self.email = email
+		self.content = content
+		self.send_date = send_date or datetime.datetime.utcnow()
+
+	def __unicode__(self):
+		return '<Feedback: %r (%r)>' % (self.name, self.email)
+
+	def __repr__(self):
+		return unicode(self).encode('utf-8')
+
+	@classmethod
+	def send(cls, slug):
+		return cls.query.filter(cls.slug==slug)
 
 # vim: set fdm=marker fdc=0 ts=4 sw=4 tw=100 fo-=t ff=unix ft=python:

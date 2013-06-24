@@ -15,6 +15,7 @@ app.config.from_pyfile('config.py')
 assets = Environment(app)
 
 # TEMPLATE
+# Включим компрессию HTML
 app.jinja_env.add_extension('utils.jinja.htmlcompress.HTMLCompress')
 
 from utils.jinja.filters import markdown, datetimefmt, timesince
@@ -43,7 +44,6 @@ if not app.config['DEBUG']:
 
 
 # Auth {{{
-
 from functools import wraps
 from flask import request, Response
 

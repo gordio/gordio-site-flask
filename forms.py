@@ -36,7 +36,7 @@ class ArticleForm(wtf.Form):
 	], widget=wtf.TextArea())
 	content = wtf.TextField("Content", [
 		validators.Required(),
-		validators.Length(min=100, max=5000),
+		validators.Length(min=100, max=15000),
 	], widget=wtf.TextArea())
 	tags = wtf.TextField("Tags", [
 		validators.Optional(strip_whitespace=True),
