@@ -1,7 +1,13 @@
+/*
+ * Forms styling and margins
+ *
+ * vim: set fdm=marker ts=3 sw=3 tw=80 fo-=t ff=unix:
+ */
+
 
 /* Fields Styling {{{ */
 fieldset {
-	margin-bottom: 20px;
+	margin-bottom: 1.125em;
 }
 
 input[type="tel"],
@@ -22,22 +28,22 @@ input[type="email"],
 textarea,
 select {
 	display: block;
-	margin: 0 0 0.625em;
+	margin: 0em 0em 0.625em;
 	padding: 0.375em 0.25em;
-	min-width: 180px;
+	min-width: 180px; /* this need fix? */
 	max-width: 100%;
 	font-size: 1em;
 	color: #666;
 	background: #FFF;
-	border: 1px solid #CCC;
+	border: 0.0625em solid #CCC;
 	outline: none;
 
 
-	-webkit-border-radius: 2px;
-	   -moz-border-radius: 2px;
-	    -ms-border-radius: 2px;
-	     -o-border-radius: 2px;
-	        border-radius: 2px;
+	-webkit-border-radius: 0.125em;
+	   -moz-border-radius: 0.125em;
+	    -ms-border-radius: 0.125em;
+	     -o-border-radius: 0.125em;
+	        border-radius: 0.125em;
 
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -45,20 +51,20 @@ select {
 	     -o-box-sizing: border-box;
 	        box-sizing: border-box;
 
-	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-	   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-	    -ms-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-	     -o-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-	        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: inset 0em 0.0625em 0.125em rgba(0, 0, 0, 0.1);
+	   -moz-box-shadow: inset 0em 0.0625em 0.125em rgba(0, 0, 0, 0.1);
+	    -ms-box-shadow: inset 0em 0.0625em 0.125em rgba(0, 0, 0, 0.1);
+	     -o-box-shadow: inset 0em 0.0625em 0.125em rgba(0, 0, 0, 0.1);
+	        box-shadow: inset 0em 0.0625em 0.125em rgba(0, 0, 0, 0.1);
 }
 
 textarea {
 	width: 100%;
-	min-height: 60px;
+	min-height: 60px; /* this need fix? */
 }
 
 select {
-	width: 220px;
+	width: 220px; /* this need fix? */
 }
 
 input[type="checkbox"] {
@@ -72,7 +78,7 @@ input[type="checkbox"] {
 
 
 /* Focused */
-select { padding: 0px; }
+select { padding: 0em; }
 input[type="tel"]:focus,
 input[type="search"]:focus,
 input[type="url"]:focus,
@@ -90,14 +96,14 @@ input[type="password"]:focus,
 input[type="email"]:focus,
 textarea:focus {
 	color: #444;
-	border: 1px solid #AAA;
+	border: 0.0625em solid #AAA;
 
 
-	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-	   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-	    -ms-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-	     -o-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-	        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0em 0em 0.1875em rgba(0, 0, 0, 0.2);
+	   -moz-box-shadow: 0em 0em 0.1875em rgba(0, 0, 0, 0.2);
+	    -ms-box-shadow: 0em 0em 0.1875em rgba(0, 0, 0, 0.2);
+	     -o-box-shadow: 0em 0em 0.1875em rgba(0, 0, 0, 0.2);
+	        box-shadow: 0em 0em 0.1875em rgba(0, 0, 0, 0.2);
 }
 
 /* Readonly */
@@ -118,14 +124,14 @@ input[type="password"][readonly]:focus,
 input[type="email"][readonly]:focus,
 textarea[readonly]:focus {
 	color: #666;
-	border: 1px solid #CCC;
+	border: 0.0625em solid #CCC;
 
 
-	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-	   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-	    -ms-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-	     -o-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-	        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: inset 0em 0.0625em 0.125em rgba(0, 0, 0, 0.1);
+	   -moz-box-shadow: inset 0em 0.0625em 0.125em rgba(0, 0, 0, 0.1);
+	    -ms-box-shadow: inset 0em 0.0625em 0.125em rgba(0, 0, 0, 0.1);
+	     -o-box-shadow: inset 0em 0.0625em 0.125em rgba(0, 0, 0, 0.1);
+	        box-shadow: inset 0em 0.0625em 0.125em rgba(0, 0, 0, 0.1);
 }
 
 /* Disabled */
@@ -162,7 +168,7 @@ input[type="password"][disabled]:focus,
 input[type="email"][disabled]:focus,
 textarea[disabled]:focus {
 	color: #555;
-	border: 1px solid #CCC;
+	border: 0.0625em solid #CCC;
 
 
 	-webkit-box-shadow: none;
@@ -226,14 +232,14 @@ label.required {
 .required label:after,
 label.required:after {
 	content: '*';
-	padding-left: 2px;
+	padding-left: 0.125em;
 	color: #A00;
 }
 
 label span,
 legend span {
 	font-weight: normal;
-	font-size: 13px;
+	font-size: 0.875em;
 	color: #444;
 }
 /* }}} */
@@ -241,14 +247,14 @@ legend span {
 /* Extra styles {{{ */
 /* Errors list */
 form ul.errors {
-	margin: 0;
-	padding: 0 0 0 5px;
+	margin: 0em;
+	padding: 0em 0em 0em 0.3125em;
 }
 
 form ul.errors li {
-	margin: 0;
-	margin-bottom: 2px;
-	padding: 0;
+	margin: 0em;
+	margin-bottom: 0.125em;
+	padding: 0em;
 	color: #645;
 	list-style: square inside;
 }
@@ -272,5 +278,3 @@ input.full {
 	width: 100%;
 }
 /* }}} */
-
-/* vim: set fdm=marker ts=3 sw=3 tw=100 fo-=t ff=unix: */

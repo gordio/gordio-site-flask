@@ -1,3 +1,12 @@
+/*
+ * Style for prepare page for printing. Don't forget remove you elements:
+ * `.my_menu, .my_footer, .my_sidebar { display: none;}`
+ *
+ * Usage: <link rel="stylesheet" href="print.css" media="print">
+ *
+ * vim: set fdm=marker fdc=0 ts=3 sw=3 tw=80 fo-=t ff=unix ft=css:
+ */
+
 
 * {
 	color: #000;
@@ -29,7 +38,7 @@ a[href]:after {
 a[href] {
 	font-weight: bold;
 	text-decoration: underline;
-	color: #06c;
+	color: #06C;
 	border: none;
 }
 
@@ -50,7 +59,6 @@ figure {
 }
 
 figure img {
-	border: 1px solid #000;
+	border: 0.0625em solid #000;
 }
 
-/* vim: set fdm=marker fdc=0 ts=3 sw=3 tw=100 fo-=t ff=unix ft=css:*/

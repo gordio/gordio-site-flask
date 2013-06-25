@@ -67,8 +67,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 h1 {
 	margin-bottom: 0.4em;
-	font-size: 32px;
-	line-height: 36px;
+	font-size: 2em;
+	line-height: 1em;
 }
 
 h2 {
@@ -79,24 +79,24 @@ h2 {
 
 h3 {
 	margin-bottom: 0.15em;
-	font-size: 26px;
-	line-height: 28px;
+	font-size: 1.5px;
+	line-height: 1em;
 }
 
 h4 {
 	margin-bottom: 0.1em;
-	font-size: 22px;
-	line-height: 24px;
+	font-size: 1.33em;
+	line-height: 1em;
 }
 
 h5 {
-	font-size: 20px;
-	line-height: 20px;
+	font-size: 1.15em;
+	line-height: 1em;
 }
 
 h6 {
-	font-size: 17px;
-	line-height: 18px;
+	font-size: 1em;
+	line-height: 1em;
 }
 
 /* bottom */
@@ -130,7 +130,7 @@ blockquote, blockquote p {
 }
 
 blockquote {
-	padding: 5px 20px 0 19px;
+	padding: 0.25em 1.1em 0 1em;
 }
 
 blockquote cite {
@@ -259,6 +259,7 @@ img {
 .text-right  { text-align: right; }
 /* }}} */
 
+
 /* Elements {{{
  * ======================================================================= */
 kbd {
@@ -283,7 +284,7 @@ kbd {
 
 p code,
 ul code {
-	padding: 0px 3px;
+	padding: 0 3px;
 	border: 1px solid rgba(128, 128, 128, 0.1);
 
 
