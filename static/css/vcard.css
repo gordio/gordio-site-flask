@@ -22,12 +22,6 @@ a {
 	text-align: center;
 	color: #000;
 }
-h1 {
-	margin: 0px;
-	padding: 0px;
-	font-size: 1.25em;
-	color: #000;
-}
 .vcard {
 	position: absolute;
 	top: 50%;
@@ -90,6 +84,17 @@ h1 {
 	        transform: rotate(3deg);
 }
 
+
+h1 {
+	margin: 0px;
+	padding: 0px;
+	font-size: 1.37em;
+	color: #000;
+}
+
+.fn span {
+	padding-right: 0.3125em;
+}
 
 .profiles {
 	margin: 0.125em -0.625em;
