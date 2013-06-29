@@ -99,7 +99,7 @@ h1 {
 
 .profile {
 	display: inline-block;
-	margin-right: 0.26em;
+	margin-right: 0.52em;
 	width: 3em;
 	height: 3em;
 	border: 0.0625em solid rgba(0, 0, 0, 0.5);
@@ -128,12 +128,10 @@ h1 {
 	margin-right: 0;
 }
 .profile img {
-	margin: 0;
-	padding: 0;
 	border: 0;
 	width: 100%;
 	height: 100%;
-	opacity: 0.9;
+	opacity: 0.8;
 }
 .profile.grooveshark {
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#FC700C), from(#F2A127));
