@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}About —{{ " " }}{{ super() }}{% endblock %}
+
+{% block content %}
+<section id="content" class="page container">
+<article class="home">
+	<div class="photo six columns">
+		<img src="{{ url_for('static', filename="img/photo.jpg") }}" alt="Photo">
+	</div>
+	<div class="ten columns">
+		<span class="person">
+			<h2 class="no-bottom">Гордиенко Олег</h2>
+			<p>Разработчик</p>
+		</span>
+
+		<p>Все должно быть правильно, а то что не правильно - должно быть по правильному неправильно! Склонен к чрезмерной оптимизации. Не люблю, когда над душой стоят, подгоняют и отвлекают.</p>
+		<p>В свободное время могу попрактиковаться в игре на гитаре. Или выехать на MTB покатать под Blues, Rock&Roll, Metal, Industrial.</p>
+
+		<h4>Навыки</h4>
+		<ul>
+			<li><strong>C</strong>: GTK-2.0, WebKit-GTK, Win-API, other.</li>
+			<li><strong>Python</strong>: Django, Flask, Scripts.</li>
+			<li><strong>Верстка</strong>: HTML4.1, HTML5, CSS2.1, CSS3.</li>
+			<li><strong>PHP</strong>: Mod-X, Wordpress, other</li>
+			<li><strong>Linux</strong>: lighttpd, php, python, pdnsd, other</li>
+			<li><strong>Git</strong>: Одиночная разработка</li>
+		</ul>
+
+		<h4>Интересы</h4>
+		<ul>
+			<li>Программирование (C, Python, Go, Lua)</li>
+			<li>Верстка (HTML4.1, HTML5, CSS2.1, CSS3)</li>
+			<li>Электроника</li>
+			<li>Музыка</li>
+			<li>Вело/мото</li>
+		</ul>
+	</div>
+</article>
+</section>
+{% endblock %}

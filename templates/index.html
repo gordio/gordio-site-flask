@@ -1,40 +1,52 @@
 {% extends 'layout.html' %}
 
 
-{% block title %}About —{{ " " }}{{ super() }}{% endblock %}
+{% block css %}
+	{{ super() }}
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/vcard.css") }}" media="all">
+{% endblock %}
+
+
+{% block title %}VCard —{{ " " }}{{ super() }}{% endblock %}
 
 {% block content %}
-<article class="home">
-	<div class="photo six columns">
-		<img src="{{ url_for('static', filename="img/photo.jpg") }}" alt="Photo">
+	<div id="hcard-Oleg-Vasilievich-Gordienko" class="vcard">
+		<a class="url fn n" rel="me" href="http://www.gordio.pp.ua/">
+			<h1>
+				<span class="family-name">Гордиенко</span>
+				<span class="given-name">Олег</span>
+				<span class="additional-name">Васильевич</span>
+			</h1>
+		</a>
+		<div class="category">Web and Linux Developer</div>
+		<div class="profiles">
+			<a class="profile googleplus url" rel="me" href="http://plus.google.com/108016109141914573964/posts">
+				<img src="{{ url_for('static', filename="img/profile/google-plus.svg") }}">
+			</a>
+			<a class="profile twitter url" rel="me" href="http://twitter.com/gordioua/">
+				<img src="{{ url_for('static', filename="img/profile/twitter.svg") }}">
+			</a>
+			<a class="profile foursquare url" rel="me" href="#">
+				<img src="{{ url_for('static', filename="img/profile/foursquare.svg") }}">
+			</a>
+			<a class="profile grooveshark url" rel="me" href="http://grooveshark.com/gordio/">
+				<img src="{{ url_for('static', filename="img/profile/grooveshark.svg") }}">
+			</a>
+			<a class="profile github url" rel="me" href="http://github.com/gordio/">
+				<img src="{{ url_for('static', filename="img/profile/github.svg") }}">
+			</a>
+			<a class="profile bitbucket url last" rel="me" href="http://bitbucket.org/gordio/">
+				<img src="{{ url_for('static', filename="img/profile/bitbucket.svg") }}">
+			</a>
+		</div>
+		<div class="footer">
+			<div class="line">
+				<a class="email icon-envelope-alt" href="mailto:admin@gordio.pp.ua">admin@gordio.pp.ua</a>
+			</div>
+			<div class="line">
+				<span class="tel icon-phone">(097) 693-49-76</span>
+			</div>
+			<img class="qrcode" src="{{ url_for('static', filename="img/code.png") }}" alt="QR Code">
+		</div>
 	</div>
-	<div class="ten columns">
-		<span class="person">
-			<h2 class="no-bottom">Гордиенко Олег</h2>
-			<p>Разработчик</p>
-		</span>
-
-		<p>Все должно быть правильно, а то что не правильно - должно быть по правильному неправильно! Склонен к чрезмерной оптимизации. Не люблю, когда над душой стоят, подгоняют и отвлекают.</p>
-		<p>В свободное время могу попрактиковаться в игре на гитаре. Или выехать на MTB покатать под Blues, Rock&Roll, Metal, Industrial.</p>
-
-		<h4>Навыки</h4>
-		<ul>
-			<li><strong>C</strong>: GTK-2.0, WebKit-GTK, Win-API, other.</li>
-			<li><strong>Python</strong>: Django, Flask, Scripts.</li>
-			<li><strong>Верстка</strong>: HTML4.1, HTML5, CSS2.1, CSS3.</li>
-			<li><strong>PHP</strong>: Mod-X, Wordpress, other</li>
-			<li><strong>Linux</strong>: lighttpd, php, python, pdnsd, other</li>
-			<li><strong>Git</strong>: Одиночная разработка</li>
-		</ul>
-
-		<h4>Интересы</h4>
-		<ul>
-			<li>Программирование (C, Python, Go, Lua)</li>
-			<li>Верстка (HTML4.1, HTML5, CSS2.1, CSS3)</li>
-			<li>Электроника</li>
-			<li>Музыка</li>
-			<li>Вело/мото</li>
-		</ul>
-	</div>
-</article>
 {% endblock %}

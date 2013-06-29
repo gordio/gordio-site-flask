@@ -10,6 +10,7 @@
 {% block title %}Blog —{{ " " }}{{ super() }}{% endblock %}
 
 {% block content %}
+<section id="content" class="page container">
 	<div class="sixteen columns">
 	{% include "messages.html" %}
 	</div>
@@ -35,4 +36,5 @@
 	{% else %}
 		<p style="margin: 50px 0; text-align: center;">No articles</p>
 	{% endfor %}
+</article>
 {% endblock %}

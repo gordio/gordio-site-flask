@@ -19,6 +19,7 @@
 {% block title %}Add article —{{ " " }}Blog —{{ " " }}{{ super() }}{% endblock %}
 
 {% block content %}
+<section id="content" class="page container">
 	<div class="sixteen columns">
 		<h1 class="no-bottom">Edit article</h1>
 		<hr class="no-top half-bottom">
@@ -62,6 +63,7 @@
 			</div>
 		</div>
 	</form>
+</section>
 {% endblock %}
 
 {# vim: set fdm=marker fdc=0 ts=3 sw=3 tw=100 fo-=t ff=unix ft=htmljinja: #}
