@@ -1,3 +1,16 @@
+.contact {
+	margin-top: 1em;
+}
+
+.other_contacts a {
+	display: block;
+	margin: 0.3125em 0em;
+	padding: 0.0625em 0em;
+	padding-left: 1.125em;
+	background: transparent left center no-repeat;
+	text-decoration: none;
+}
+
 .other_contacts .gplus  { background-image: url("./../img/icons/contacts/application-plus.png"); }
 .other_contacts .mail   { background-image: url("./../img/icons/contacts/mail-at-sign.png"); }
 .other_contacts .irc    { background-image: url("./../img/icons/contacts/irc.png"); }

@@ -1,7 +1,10 @@
 // Automatic load scripts from link objects
+//
 // Example usage:
 // <link type="text/javascript" href="js/core.js" onload="core.init();">
+// and after all scripts put
 // <script async src="js/loader.js"></script>
+
 
 function load(url, callback) {
 	var req = new XMLHttpRequest();

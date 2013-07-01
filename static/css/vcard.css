@@ -20,8 +20,9 @@ a {
 	padding-right: 0.125em;
 	width: 1.125em;
 	text-align: center;
-	color: #000;
+	color: #222;
 }
+
 .vcard {
 	position: absolute;
 	top: 50%;
@@ -88,7 +89,7 @@ a {
 h1 {
 	margin: 0px;
 	padding: 0px;
-	font-size: 1.37em;
+	font-size: 1.5em;
 	color: #000;
 }
 
@@ -167,11 +168,11 @@ h1 {
 	background-image:      linear-gradient(#A5DFF7, #4EC6ED);
 }
 .profile.github {
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#111111), from(#616161));
-	background-image: -moz-linear-gradient();
-	background-image:  -ms-linear-gradient();
-	background-image:   -o-linear-gradient();
-	background-image:      linear-gradient();
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#BBB), from(#EEE));
+	background-image: -moz-linear-gradient(#EEE, #BBB);
+	background-image:  -ms-linear-gradient(#EEE, #BBB);
+	background-image:   -o-linear-gradient(#EEE, #BBB);
+	background-image:      linear-gradient(#EEE, #BBB);
 }
 .profile.bitbucket {
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#45699B), from(#679DE5));
@@ -181,8 +182,17 @@ h1 {
 	background-image:      linear-gradient(#679DE5, #45699B);
 }
 
+
+.footer {
+	padding-top: 0.125em;
+}
+.footer, .footer a {
+	color: #666;
+}
+
 .line {
-	line-height: 1.375em;
+	padding-top: 0.125em;
+	font-size: 0.9375em;
 }
 
 .qrcode {

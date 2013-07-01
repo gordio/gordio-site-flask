@@ -1,5 +1,5 @@
 body {
-	background: #EAEAEA;
+	background: #EAEAEA url("./../img/noise.png");
 }
 
 h1.title {
@@ -104,6 +104,16 @@ nav li.active a {
 
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#3B3B3B), from(#2B2B2B));
 	background-image: -moz-linear-gradient(100% 100% 90deg, #3B3B3B, #2B2B2B);
+}
+
+nav ul li {
+	width: 25%;
+
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	    -ms-box-sizing: border-box;
+	     -o-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
 
@@ -217,21 +227,6 @@ button.donate:active {
 }
 /* }}} */
 
-
-/* Contact Page {{{ */
-.contact {
-	margin-top: 1em;
-}
-
-.other_contacts a {
-	display: block;
-	margin: 0.3125em 0em;
-	padding: 0.0625em 0em;
-	padding-left: 1.125em;
-	background: transparent left center no-repeat;
-	text-decoration: none;
-}
-/* }}} */
 
 
 /* Responsive Sizes {{{ */

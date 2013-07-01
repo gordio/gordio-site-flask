@@ -15,7 +15,7 @@
 		"css/base.css", "css/skeleton.css", "css/layout.css", "css/messages.css" %}
 		<link rel="stylesheet" href="{{ ASSET_URL }}">
 	{% endassets %}
-	{% assets filters="datauri,cssmin", output="cache/images.css", "css/font-awesome.css", "css/images.css" %}
+	{% assets filters="datauri,cssmin", output="cache/font-awesome.css", "css/font-awesome.css" %}
 		<link rel="stylesheet" href="{{ ASSET_URL }}">
 	{% endassets %}
 	{% endblock %}
@@ -27,14 +27,15 @@
 	{% block js %}
 	{% endblock %}
 
+	{# Need put after all js connection #}
 	<script async src="{{ url_for('static', filename="js/loader.js") }}"></script>
+
 </head>
 <body>
 
 	{% include "nav.html" %}
 
 	{% block content %}
-
 	{% endblock %}
 
 	{#-- Yandex.Metrika counter -#}
