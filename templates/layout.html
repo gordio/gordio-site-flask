@@ -39,6 +39,7 @@
 	{% endblock %}
 
 	{#-- Yandex.Metrika counter -#}
+	{% if DEBUG %}
 	<div style="display:none;">
 		<script type="text/javascript">
 			(function(w, c) {
@@ -57,6 +58,7 @@
 			<img src="//mc.yandex.ru/watch/11936827" style="position:absolute; left:-9999px;" alt="">
 		</div>
 	</noscript>
+	{% endif %}
 	{#-- /Yandex.Metrika counter -#}
 
 </body>

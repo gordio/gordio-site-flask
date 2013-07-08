@@ -38,13 +38,23 @@
 			</a>
 		</div>
 		<div class="footer">
-			<div class="line">
-				<a class="email icon-envelope-alt" href="mailto:admin@gordio.pp.ua">admin@gordio.pp.ua</a>
+			<div class="left">
+				<div class="line">
+					<a class="tel icon-phone" href="">(097) 693-49-76</a>
+				</div>
+				<div class="line">
+					<a class="email icon-envelope-alt" href="mailto:me@gordio.pp.ua">me@gordio.pp.ua</a>
+				</div>
 			</div>
-			<div class="line">
-				<span class="tel icon-phone">(097) 693-49-76</span>
+			<div style="float: right;">
+				<div class="line">
+					<a class="url icon-map-marker" href="http://www.gordio.pp.ua/">Ukraine/Krivoy Rog</a>
+				</div>
+				<div class="line">
+					<a class="url icon-globe" href="http://www.gordio.pp.ua/">www.gordio.pp.ua</a>
+				</div>
 			</div>
-			<img class="qrcode" src="{{ url_for('static', filename="img/code.png") }}" alt="QR Code">
 		</div>
 	</div>
+	<img class="qrcode" src="{{ url_for('static', filename="img/code.png") }}" alt="QR Code">
 {% endblock %}
