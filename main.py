@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
 from flask import Flask, g, render_template, flash, redirect, session, request, url_for, abort

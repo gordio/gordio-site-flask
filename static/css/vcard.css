@@ -2,8 +2,8 @@ html {
 	display: block;
 	min-width: 100%;
 	min-height: 100%;
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 	color: #444;
 	background: #DDD;
 
@@ -18,7 +18,7 @@ a {
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
 	padding-right: 0.125em;
-	width: 1.125em;
+	width: 1em;
 	text-align: center;
 	color: #222;
 }
@@ -30,8 +30,8 @@ a {
 	margin: 0;
 	padding: 0.625em;
 	margin-top: -5em;
-	margin-left: -11em;
-	width: 22em;
+	margin-left: -10em;
+	/*width: 20em;*/
 	min-height: 10em;
 	background: #FFF;
 	border: 0.0625em solid rgba(0, 0, 0, 0.5);
@@ -89,24 +89,24 @@ a {
 h1 {
 	margin: 0px;
 	padding: 0px;
-	font-size: 1.5em;
+	font-size: 1.4375em;
 	color: #000;
 }
 
-.fn span {
-	padding-right: 0.3125em;
+.fn span + span {
+	padding-left: 0.25em;
 }
 
 .profiles {
 	margin: 0.125em -0.625em;
-	padding: 0.5em 0.625em;
+	padding: 0.625em 0.625em;
 	height: 3em;
 	background: rgba(0, 0, 0, 0.2);
 }
 
 .profile {
 	display: inline-block;
-	margin-right: 0.52em;
+	margin-right: 0.9375em;
 	width: 3em;
 	height: 3em;
 	border: 0.0625em solid rgba(0, 0, 0, 0.5);
@@ -127,9 +127,9 @@ h1 {
 	        box-sizing: border-box;
 }
 .profile:hover {
-	-webkit-box-shadow: 0 0 0 0.25em rgba(255, 255, 255, 0.8);
-	   -moz-box-shadow: 0 0 0 0.25em rgba(255, 255, 255, 0.8);
-	        box-shadow: 0 0 0 0.25em rgba(255, 255, 255, 0.8);
+	-webkit-box-shadow: inset 0 0 0 0.0625em rgba(255, 255, 255, 0.25), 0 0 0 0.375em rgba(255, 255, 255, 0.8);
+	   -moz-box-shadow: inset 0 0 0 0.0625em rgba(255, 255, 255, 0.25), 0 0 0 0.375em rgba(255, 255, 255, 0.8);
+	        box-shadow: inset 0 0 0 0.0625em rgba(255, 255, 255, 0.25), 0 0 0 0.375em rgba(255, 255, 255, 0.8);
 }
 .profile:active {
 	-webkit-box-shadow: 0 0 0 0.25em rgba(255, 255, 255, 0.8), inset 0 0 0.625em rgba(0, 0, 0, 0.5);
@@ -166,6 +166,13 @@ h1 {
 	background-image:   -o-linear-gradient(#D82916, #C31401);
 	background-image:      linear-gradient(#D82916, #C31401);
 }
+.profile.linkedin {
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#2373AA), from(#1A85BD));
+	background-image: -moz-linear-gradient(#1A85BD, #2373AA);
+	background-image:  -ms-linear-gradient(#1A85BD, #2373AA);
+	background-image:   -o-linear-gradient(#1A85BD, #2373AA);
+	background-image:      linear-gradient(#1A85BD, #2373AA);
+}
 .profile.twitter {
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#4EC6ED), from(#A5DFF7));
 	background-image: -moz-linear-gradient(#A5DFF7, #4EC6ED);
@@ -192,7 +199,8 @@ h1 {
 .footer {
 	padding-top: 0.225em;
 }
-.footer, .footer a {
+.footer,
+.footer a {
 	color: #666;
 }
 
@@ -200,17 +208,17 @@ h1 {
 	color: #110;
 }
 
-.line {
+.footer .line {
 	padding-top: 0.125em;
-	font-size: 0.9375em;
+	font-size: 0.875em;
 }
 
 .qrcode {
 	position: absolute;
 	display: block;
 	padding: 5px;
-	right: 0.625em;
-	bottom: 0.625em;
+	right: 0.5em;
+	bottom: 0.5em;
 	border: 1px solid #666;
 	background: #FFF;
 

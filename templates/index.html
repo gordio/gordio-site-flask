@@ -7,10 +7,6 @@
 {% endblock %}
 
 
-{% block meta %}
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-{% endblock %}
-
 
 {% block title %}VCard —{{ " " }}{{ super() }}{% endblock %}
 
@@ -23,29 +19,26 @@
 			</h1>
 		<div class="category">Web and *nix Developer</div>
 		<div class="profiles">
-			<a class="profile googleplus url" rel="me" href="http://plus.google.com/108016109141914573964/posts">
-				<img src="{{ url_for('static', filename="img/profile/google-plus.svg") }}">
+			<a class="profile googleplus url" rel="me" href="http://plus.google.com/108016109141914573964/posts" title="Google Plus Profile">
+				<img src="{{ url_for('static', filename="img/profile/google-plus.svg") }}" alt="Google Plus">
 			</a>
-			<a class="profile twitter url" rel="me" href="http://twitter.com/gordioua/">
-				<img src="{{ url_for('static', filename="img/profile/twitter.svg") }}">
+			<a class="profile linkedin url" rel="me" href="http://ua.linkedin.com/in/gordio/" title="LinkedIn Profile">
+				<img src="{{ url_for('static', filename="img/profile/linkedin.svg") }}" alt="LinkedIn">
 			</a>
-			<a class="profile foursquare url" rel="me" href="http://foursquare.com/user/58103563">
-				<img src="{{ url_for('static', filename="img/profile/foursquare.svg") }}">
+			<a class="profile github url" rel="me" href="http://github.com/gordio/" title="Github Profile">
+				<img src="{{ url_for('static', filename="img/profile/github.svg") }}" alt="Github">
 			</a>
-			<a class="profile grooveshark url" rel="me" href="http://grooveshark.com/gordioua/">
-				<img src="{{ url_for('static', filename="img/profile/grooveshark.svg") }}">
+			<a class="profile bitbucket url" rel="me" href="http://bitbucket.org/gordio/" title="Bitbucket Profile">
+				<img src="{{ url_for('static', filename="img/profile/bitbucket.svg") }}" alt="Bitbucket">
 			</a>
-			<a class="profile github url" rel="me" href="http://github.com/gordio/">
-				<img src="{{ url_for('static', filename="img/profile/github.svg") }}">
-			</a>
-			<a class="profile bitbucket url last" rel="me" href="http://bitbucket.org/gordio/">
-				<img src="{{ url_for('static', filename="img/profile/bitbucket.svg") }}">
+			<a class="profile foursquare url last" rel="me" href="http://foursquare.com/user/58103563" title="Foursquare Profile">
+				<img src="{{ url_for('static', filename="img/profile/foursquare.svg") }}" alt="Foursquare">
 			</a>
 		</div>
 		<div class="footer">
 			<div class="left">
 				<div class="line">
-					<a class="tel icon-phone" href="">(097) 693-49-76</a>
+					<a class="tel icon-phone" href="tel:0976934976">(097) 693-49-76</a>
 				</div>
 				<div class="line">
 					<a class="email icon-envelope-alt" href="mailto:me@gordio.pp.ua">me@gordio.pp.ua</a>
