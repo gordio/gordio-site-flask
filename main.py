@@ -1,9 +1,8 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from flask import Flask, g, render_template, flash, redirect, session, request, url_for, abort
 from flask.ext.assets import Environment
-import sqlite3
 from datetime import datetime
 
 
@@ -12,10 +11,9 @@ app = Flask(__name__, static_url_path='')
 app.config.from_pyfile('config.py')
 
 
+# TEMPLATE
 assets = Environment(app)
 
-# TEMPLATE
-# Включим компрессию HTML
 app.jinja_env.add_extension('utils.jinja.htmlcompress.HTMLCompress')
 
 from utils.jinja.filters import markdown, datetimefmt, timesince
@@ -36,10 +34,6 @@ if not app.config['DEBUG']:
 	@app.errorhandler(500)
 	def page_not_found(error):
 		return 'Server error', 500
-
-	@app.errorhandler(sqlite3.DatabaseError)
-	def special_exception_handler(error):
-		return 'Database connection failed', 500
 # }}}
 
 
@@ -145,7 +139,9 @@ def article_view(slug):
 @app.route('/article/<slug>/edit/', methods=['GET', 'POST'])
 @requires_auth
 def article_edit(slug):
-	""" Render edit article form by <slug> or update data from `POST` """
+	"""
+	Render edit article form by <slug> or update data from `POST`
+	"""
 	from models import Article, Tag, db
 	from forms import ArticleForm
 
@@ -202,7 +198,9 @@ def article_edit(slug):
 @app.route('/articles/', defaults={'page': 1})
 @app.route('/articles/page/<int:page>/')
 def articles(page):
-	""" Render all articles """
+	"""
+	Render all articles
+	"""
 	from models import Article
 
 	articles = Article.query.filter(Article.pub_date < datetime.now()).order_by(Article.pub_date.desc())
@@ -223,7 +221,9 @@ def articles(page):
 @app.route('/articles/tagged/<tag_slug>/', defaults={'page': 1})
 @app.route('/articles/tagged/<tag_slug>/page/<int:page>/')
 def articles_tagged(tag_slug, page):
-	""" Render articles from tag_slug """
+	"""
+	Render articles from tag_slug
+	"""
 	from models import Article, Tag
 
 	tag = Tag.by_slug(tag_slug).first_or_404()
@@ -236,6 +236,9 @@ def articles_tagged(tag_slug, page):
 # Contact Page {{{
 @app.route('/contacts/', methods=['GET', 'POST'])
 def contacts():
+	"""
+	Render and processing contact form
+	"""
 	import time
 	from forms import ContactForm
 

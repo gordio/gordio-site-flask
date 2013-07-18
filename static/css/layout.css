@@ -247,6 +247,10 @@ button.donate:active {
 	.page.container {
 		padding: 0.625em;
 	}
+
+	article.list-item {
+		margin-bottom: 0.75em !important;
+	}
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
@@ -260,6 +264,7 @@ button.donate:active {
 	.article-page .content {
 		padding: 0em;
 	}
+
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -287,6 +292,9 @@ button.donate:active {
 
 	.list-item h4 {
 		font-size: 110%;
+	}
+	.list-item .tags {
+		font: 93%/120% sans-serif;
 	}
 	.list-item .description p {
 		font: 93%/130% sans-serif;

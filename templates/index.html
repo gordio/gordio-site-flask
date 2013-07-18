@@ -3,7 +3,9 @@
 
 {% block css %}
 	{{ super() }}
-	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/vcard.css") }}" media="all">
+	{% assets filters="datauri,cssmin", output="cache/vcard.css", "css/vcard.css" %}
+		<link rel="stylesheet" href="{{ ASSET_URL }}">
+	{% endassets %}
 {% endblock %}
 
 
