@@ -125,10 +125,10 @@ nav span:before {
 	padding: 1em 1em;
 }
 
-nav .about:before    { background: url("./../img/icons/nav.png") 0px center repeat-x; }
-nav .projects:before { background: url("./../img/icons/nav.png") -32px center no-repeat; }
-nav .articles:before { background: url("./../img/icons/nav.png") -64px center no-repeat; }
-nav .contacts:before { background: url("./../img/icons/nav.png") -96px center no-repeat; }
+nav .about a:before    { background: url("./../img/icons/nav.png") 0px center repeat-x; }
+nav .projects a:before { background: url("./../img/icons/nav.png") -32px center no-repeat; }
+nav .articles a:before { background: url("./../img/icons/nav.png") -64px center no-repeat; }
+nav .contacts a:before { background: url("./../img/icons/nav.png") -96px center no-repeat; }
 /* }}} */
 
 
@@ -274,13 +274,15 @@ button.donate:active {
 		background: #FAFAFA !important;
 	}
 
-	nav li a,
-	nav li span {
-		font-size: 0;
+	/* Navigation */
+	nav li a:before,
+	nav li span:before {
+		margin-right: 50px !important;
 	}
 	nav li a,
 	nav li span {
-		padding: 8px 18px;
+		overflow: hidden;
+		padding: 8px 22px;
 	}
 
 	.list-item h4 {
