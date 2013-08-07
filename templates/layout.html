@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>{% block title %}Gordienko Oleg{% endblock %}</title>
-	{% block meta %}{% endblock %}
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
 	<link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename="favicon.png") }}">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% block meta %}
+	{% endblock %}
 
 	{% block css %}
 	{% assets filters="cssmin", output="cache/base.css",
@@ -17,7 +17,6 @@
 	{% endblock %}
 
 	{% block js %}
-		<script src="{{ url_for('static', filename="js/libs/hammer.min.js") }}" type="text/javascript"></script>
 	{% endblock %}
 </head>
 <body>
@@ -56,8 +55,5 @@
 	<noscript><div><img src="//mc.yandex.ru/watch/11936827" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 	{% endif %}
 	{#-- /Yandex.Metrika counter -#}
-
 </body>
 </html>
-
-{# vim: set ft=htmljinja fdm=marker ts=4 sw=4 tw=100 fo-=t ff=unix: #}

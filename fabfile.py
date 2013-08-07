@@ -5,8 +5,9 @@ env.hosts = ["gordio.pp.ua", ]
 
 
 def deploy():
+	local("git push")
 	execute(update)
 
 def update():
 	with cd("gordio.pp.ua/app/"):
-		run('git pull', pty=True)
+		run("git pull", pty=True)
