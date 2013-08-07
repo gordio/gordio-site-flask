@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Models file
+
 from flask.ext.sqlalchemy import SQLAlchemy
 import datetime
 from main import app
@@ -96,5 +97,6 @@ class FeedBack(db.Model):
 	@classmethod
 	def send(cls, slug):
 		return cls.query.filter(cls.slug==slug)
+
 
 # vim: set fdm=marker fdc=0 ts=4 sw=4 tw=100 fo-=t ff=unix ft=python:

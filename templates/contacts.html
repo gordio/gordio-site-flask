@@ -6,6 +6,9 @@
 	{% assets filters="datauri,cssmin", output="cache/contacts.css", "css/contacts.css", "css/forms.css", "css/buttons.css" %}
 		<link rel="stylesheet" href="{{ ASSET_URL }}">
 	{% endassets %}
+	{% assets filters="datauri,cssmin", output="cache/font-icons.css", "css/font-icons.css" %}
+		<link rel="stylesheet" href="{{ ASSET_URL }}">
+	{% endassets %}
 {% endblock %}
 
 
@@ -59,7 +62,7 @@
 			</div>
 
 			<div class="text-right">
-				<button class="blue icon-comment" type="submit">Отправить сообщение</button>
+				<button class="blue icon-mail" type="submit">Отправить сообщение</button>
 			</div>
 		</form>
 	</div>
@@ -69,11 +72,11 @@
 			<a class="gplus" href="https://plus.google.com/108016109141914573964/posts">Google+: Gordio</a>
 			<a class="mail" href="mailto:work@gordio.pp.ua">E-Mail: admin@gordio.pp.ua</a>
 			<a class="skype" href="skype:viliker">Skype: viliker</a>
-			<a class="jabber" href="xmpp:gordio@ya.ru">Jabber: gordio@ya.ru</a>
-			<a class="icq" href="#">ICQ: 5700112{#<img src="http://web.icq.com/whitepages/online?icq=5700112&img=22">#}</a>
+			{# <a class="jabber" href="xmpp:gordio@ya.ru">Jabber: gordio@ya.ru</a> #}
+			<a class="icq" href="#">ICQ: 5-700-112</a>
 			<a class="phone" href="#">(097) 693-49-76</a>
-			<a class="irc" href="irc://irc.freenode/">FreeNode: Gordio{#<img src="http://web.icq.com/whitepages/online?icq=5700112&img=22">#}</a>
-			<a class="irc" href="irc://irc.rusnet/">RusNet: Gordio{#<img src="http://web.icq.com/whitepages/online?icq=5700112&img=22">#}</a>
+			<a class="irc" href="irc://irc.freenode/">FreeNode: Gordio</a>
+			<a class="irc" href="irc://irc.rusnet/">RusNet: Gordio</a>
 		</div>
 	</div>
 </section>

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from flask.ext import wtf
 from flask.ext.wtf import validators
 

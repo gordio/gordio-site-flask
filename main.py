@@ -13,6 +13,7 @@ app.config.from_pyfile('config.py')
 
 # TEMPLATE
 assets = Environment(app)
+assets.url = app.static_url_path
 
 app.jinja_env.add_extension('utils.jinja.htmlcompress.HTMLCompress')
 
@@ -72,7 +73,7 @@ def requires_auth(f):
 # VIEWS
 @app.route('/')
 def index():
-	return render_template('index.html', **locals())
+	return render_template('vcard.html', **locals())
 
 
 @app.route('/about/')
