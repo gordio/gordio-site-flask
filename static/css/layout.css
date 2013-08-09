@@ -65,15 +65,15 @@ nav ul {
 	border-left: 0.0625em solid #303030;
 }
 
-nav li {
+nav ul li {
 	float: left;
 	display: block;
 	border-left: 0.0625em solid #4A4A4A;
 	border-right: 0.0625em solid #303030;
 }
 
-nav li a,
-nav li span {
+nav ul li a,
+nav ul li span {
 	display: block;
 	color: #DEF !important;
 	padding: 0.5em 0.75em;
@@ -82,7 +82,7 @@ nav li span {
 	text-shadow: 0 0.0625em 0.0625em #000;
 }
 
-nav li a:hover {
+nav ul li a:hover {
 	background: #5C5C5C;
 
 
@@ -93,27 +93,19 @@ nav li a:hover {
 	background-image:      linear-gradient(#4E4E4E, #6A6A6A);
 }
 
-nav li span {
-	cursor: default;
-}
-
-nav li.disabled span {
-	opacity: 0.25;
-}
-
-nav li.active {
-	border-left: 0.0625em solid #2D2D2D;
+nav ul li.active {
+	border-left: 0.0625em solid #111;
 	border-right: 0.0625em solid #111;
 }
-nav li.active a {
-	background: #5C5C5C;
+nav ul li.active a {
+	background: #3B3B3B;
 
 
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3B3B3B), to(#2B2B2B));
-	background-image: -moz-linear-gradient(#3B3B3B, #2B2B2B);
-	background-image:  -ms-linear-gradient(#3B3B3B, #2B2B2B);
-	background-image:   -o-linear-gradient(#3B3B3B, #2B2B2B);
-	background-image:      linear-gradient(#3B3B3B, #2B2B2B);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2B2B2B), to(#3B3B3B));
+	background-image: -moz-linear-gradient(#2B2B2B, #3B3B3B);
+	background-image:  -ms-linear-gradient(#2B2B2B, #3B3B3B);
+	background-image:   -o-linear-gradient(#2B2B2B, #3B3B3B);
+	background-image:      linear-gradient(#2B2B2B, #3B3B3B);
 }
 
 nav ul li {
@@ -235,7 +227,6 @@ button.donate:active {
 
 .home .photo img {
 	border: 0.0625em solid rgba(0, 0, 0, 0.3);
-
 
 	-webkit-border-radius: 0.1875em;
 	-moz-border-radius: 0.1875em;

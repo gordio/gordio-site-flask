@@ -82,6 +82,18 @@ def about():
 
 
 # Articles {{{
+@app.route('/article/<slug>/')
+def article_view(slug):
+	"""
+	Show article from <slug> or 404
+	"""
+	from models import Article
+
+	article = Article.by_slug(slug).filter(Article.pub_date < datetime.now()).first_or_404()
+
+	return render_template('article/view.html', **locals())
+
+
 @app.route('/article/add/', methods=['GET', 'POST'])
 @requires_auth
 def article_add():
@@ -125,16 +137,6 @@ def article_add():
 			return redirect(url_for('article_view', slug=article.slug))
 
 	return render_template('article/add.html', **locals())
-
-
-@app.route('/article/<slug>/')
-def article_view(slug):
-	""" Show article from <slug> or 404 """
-	from models import Article
-
-	article = Article.by_slug(slug).filter(Article.pub_date < datetime.now()).first_or_404()
-
-	return render_template('article/view.html', **locals())
 
 
 @app.route('/article/<slug>/edit/', methods=['GET', 'POST'])
@@ -223,7 +225,7 @@ def articles(page):
 @app.route('/articles/tagged/<tag_slug>/page/<int:page>/')
 def articles_tagged(tag_slug, page):
 	"""
-	Render articles from tag_slug
+	Render articles with tag_slug
 	"""
 	from models import Article, Tag
 

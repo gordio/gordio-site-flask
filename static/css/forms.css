@@ -29,7 +29,7 @@ textarea,
 select {
 	display: block;
 	margin: 0em 0em 0.625em;
-	padding: 0.375em 0.25em;
+	padding: 0.375em;
 	min-width: 180px; /* this need fix? */
 	max-width: 100%;
 	font-size: 1em;

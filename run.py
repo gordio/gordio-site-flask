@@ -19,6 +19,7 @@ class WebFactionMiddleware(object):
 		environ['SCRIPT_NAME'] = ''
 		return self.app(environ, start_response)
 
+
 app.wsgi_app = WebFactionMiddleware(app.wsgi_app)
 
 

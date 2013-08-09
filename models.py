@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# Models file
 
 from flask.ext.sqlalchemy import SQLAlchemy
 import datetime

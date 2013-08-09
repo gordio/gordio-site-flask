@@ -1,4 +1,4 @@
-<nav>
+<nav class="horiz-menu">
 	<ul class="container">
 		<li class="about{% if request.endpoint == "about" %}{{ " " }}active{% endif %}">
 			<a href="{{ url_for('about') }}">About</a>
