@@ -19,11 +19,9 @@
 	-webkit-font-smoothing: antialiased;
 }
 
-/* Use the following CSS code if you want to have a class per icon */
-/*
-Instead of a list of all class selectors,
+/* Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
-[class*="icon-"] {
+[class*="icon-"]:before {
 */
 .icon-googleplus:before,
 .icon-linkedin:before,
@@ -33,8 +31,10 @@ you can use the generic selector below, but it's slower:
 .icon-mail:before,
 .icon-phone:before,
 .icon-earth:before,
-.icon-location:before {
+.icon-location:before,
+.icon-home:before {
 	font-family: 'font-icons';
+	padding: 0 0.25em;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -44,29 +44,32 @@ you can use the generic selector below, but it's slower:
 	-webkit-font-smoothing: antialiased;
 }
 .icon-googleplus:before {
-	content: "\e000";
+	content: "\21";
 }
 .icon-linkedin:before {
-	content: "\e001";
+	content: "\22";
 }
 .icon-github:before {
-	content: "\e002";
+	content: "\23";
 }
 .icon-stackoverflow:before {
-	content: "\e003";
+	content: "\24";
 }
 .icon-foursquare:before {
-	content: "\e004";
+	content: "\25";
 }
 .icon-phone:before {
-	content: "\e005";
+	content: "\26";
 }
 .icon-mail:before {
-	content: "\e006";
+	content: "\27";
 }
 .icon-location:before {
-	content: "\e007";
+	content: "\28";
 }
 .icon-earth:before {
-	content: "\e008";
+	content: "\29";
+}
+.icon-home:before {
+	content: "\2a";
 }

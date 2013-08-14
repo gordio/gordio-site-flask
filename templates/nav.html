@@ -1,17 +1,12 @@
-<nav class="horiz-menu">
-	<ul class="container">
-		<li class="about{% if request.endpoint == "about" %}{{ " " }}active{% endif %}">
-			<a href="{{ url_for('about') }}">About</a>
-		</li>
-		<li class="articles{% if "article" in request.endpoint %}{{ " " }}active{% endif %}">
-			<a href="{{ url_for('articles') }}">Blog</a>
-		</li>
-		<li class="projects">
-			<a href="http://code.gordio.pp.ua/">Works</a>
-		</li>
-		<li class="contacts{% if request.endpoint == "contacts" %}{{ " " }}active{% endif %}">
-			<a href="{{ url_for('contacts') }}">Contact</a>
-		</li>
-	</ul>
-</nav>
+<div class="top-nav-wrap">
+	<nav class="top-menu container">
+		<a {% if request.endpoint == "about" %}class="active"{% endif %} href="{{ url_for('about') }}">About</a>
+		<a {% if request.endpoint == "articles" %}class="active"{% endif %} href="{{ url_for('articles') }}">Blog</a>
+		<a class="home {% if request.endpoint == "index" %}{{ " " }}active{% endif %}" href="/" data-icon="&#x2a;"></a>
+		<a {% if request.endpoint == "code" %}class="active"{% endif %} href="http://code.gordio.pp.ua/">Work</a>
+		<a {% if request.endpoint == "contacts" %}class="active"{% endif %} href="{{ url_for('contacts') }}">Contact</a>
+	</nav>
+</div>
+
+
 {# vim: set fdm=marker ts=3 sw=3 tw=100 fo-=t ff=unix ft=htmljinja: #}
