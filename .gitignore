@@ -2,7 +2,7 @@
 *.pyc
 *.pyo
 *.mo
-.env
+venv
 database.sqlite3
 config.py
 static/cache
