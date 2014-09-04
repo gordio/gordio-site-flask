@@ -3,5 +3,6 @@
 *.pyo
 *.mo
 .env
-db.sqlite
+database.sqlite3
+config.py
 static/cache
