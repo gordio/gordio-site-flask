@@ -1,0 +1,184 @@
+.articles-list_item {
+    margin-bottom: 1em;
+}
+
+
+.articles_list img,
+.article_detail img {
+    float: left;
+    padding: 0 0.25em 0.0125em 0;
+    max-width: 100%;
+    height: auto;
+}
+
+.article_detail h1.title {
+    font-size: 2em;
+    margin: 0.25em 0;
+    margin-bottom: 0.25em;
+}
+
+.article_detail blockquote {
+    margin-left: 2em;
+    margin-right: 0;
+}
+
+.article_detail blockquote:before {
+    content: '“';
+    position: relative;
+    margin-left: -0.5em;
+    float: left;
+    font-size: 2em;
+    color: #AAA;
+}
+
+/*.article_detail blockquote:after {
+    content: '”';
+}*/
+
+.article_detail code {
+    padding: 0 0.125em;
+    border: 1px solid #CCC;
+    background: #F2F2F2;
+    border-radius: 0.125em;
+}
+
+.article_detail pre {
+    padding: 0.125em 0.25em;
+    border: 1px solid #CCC;
+    background: #F2F2F2;
+    border-radius: 0.125em;
+}
+
+.article_detail pre > code {
+    padding: 0;
+    border: 0;
+}
+
+.article_detail {
+    line-height: 1.25em;
+}
+
+/* little fix */
+.articles_list article .description p {
+    margin-top: 0.125em;
+}
+
+
+/*// Small screens*/
+/* max-width 640px, mobile-only styles, use when QAing mobile issues */
+@media only screen and (max-width: 40em) {
+}
+
+/*// Medium screens*/
+/* min-width 641px, medium screens */
+@media only screen and (min-width: 40.063em) {
+}
+
+.list_item {
+    float: left;
+    margin-bottom: 1.2em;
+}
+
+.list-item h4 {
+    margin: 0;
+}
+
+.list_item .description {
+    clear: both;
+    width: 100%;
+    font-size: 93%;
+}
+
+.list_item .description p:last-child {
+    margin-bottom: 0;
+}
+
+
+.more {
+    float: right;
+}
+
+
+/* TAGS */
+.tags {
+}
+.tags a {
+    display: inline-block;
+    color: #90786F;
+    text-decoration: none;
+}
+.tags a:hover {
+    color: #543;
+    text-decoration: underline;
+}
+
+
+pre {
+    margin: 0 0 0.9375em 0;
+    padding: 0.25em 0.5em;
+    overflow-x: auto;
+    background: #FDFCFA;
+    border: 0.0625em solid #E3ECE0;
+
+    border-radius: 0.125em;
+}
+
+article img.left {
+    margin: 0.25em 0.5em 0.2em 0;
+}
+article img.right {
+    margin: 0.25em 0 0.2em 0.5em;
+}
+
+.article_page #widgets {
+    float: right;
+    height: 4.0625em;
+    overflow: hidden;
+}
+.article_page .content {
+    padding: 0 0.625em;
+}
+
+.article_page .content pre > code {
+    border: none !important;
+    padding: 0;
+    margin: 0;
+}
+
+button.donate {
+    background: #FFDD84;
+    cursor: pointer;
+
+    background-image: linear-gradient(#FBC654, #FFDD84);
+}
+button.donate:active {
+    background: #FBC654;
+}
+
+
+/* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+
+}
+
+/*// Large screens*/
+@media only screen and (min-width: 64.063em) {
+}
+
+/* min-width 1024px and max-width 1440px, use when QAing large screen-only issues */
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+}
+
+/*// XLarge screens*/
+/* min-width 1441px, xlarge screens */
+@media only screen and (min-width: 90.063em) {
+}
+
+/* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
+@media only screen and (min-width: 90.063em) and (max-width: 120em) {
+}
+
+/*// XXLarge screens*/
+/* min-width 1921px, xlarge screens */
+@media only screen and (min-width: 120.063em) {
+}

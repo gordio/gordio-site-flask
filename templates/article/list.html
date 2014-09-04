@@ -4,37 +4,36 @@
 
 {% block css %}
 	{{ super() }}
+	{% assets filters="cssmin", output="cache/articles.css", "css/articles.css" %}
+		<link rel="stylesheet" href="{{ ASSET_URL }}">
+	{% endassets %}
 {% endblock %}
 
 
 {% block title %}Blog —{{ " " }}{{ super() }}{% endblock %}
 
 {% block content %}
-<section id="content" class="page container">
-	<div class="sixteen columns">
+<section class="articles_list row">
+	<div class="medium-12 columns">
 	{% include "messages.html" %}
 	</div>
 
 	{% for article in articles %}
-		<article class="list-item eight columns">
+		<article class="articles-list_item medium-6 columns">
 			<a href="{{ url_for('article_view', slug=article.slug) }}" title="Открыть материал «{{ article.title }}»">
-				<h4>{{ article.title }}</h4>
+				<h3 class="no_padding">{{ article.title }}</h3 class="no_bottom">
 			</a>
-			<div class="tags">
-				{% for tag in article.tags %}
-					<a class="tag" href="{{ url_for('articles_tagged', tag_slug=tag.slug) }}">{{ tag.title }}</a>{% if loop.last %}{% else %},{% endif %}
-				{% endfor %}
-			</div>
+			{% include "tags.html" ignore missing %}
 			<div class="description">
-				{{ article.description|markdown }}
+				{{ article.description }}
 			</div>
 			<a class="more" href="{{ url_for('article_view', slug=article.slug) }}#cat">Продолжить чтение » </a>
 		</article>
 		{% if loop.index is divisibleby(2) %}
-		<span class="clear"></span>
+		<div class="clear"></div>
 		{% endif %}
 	{% else %}
-		<p style="margin: 50px 0; text-align: center;">No articles</p>
+		<p style="margin: 10em 0; text-align: center;">No articles. <a href="javascript:window.history.back(-1);">Back</a></p>
 	{% endfor %}
 </article>
 {% endblock %}

@@ -3,47 +3,47 @@
 
 {% block css %}
 	{{ super() }}
-	{% assets filters="datauri,cssmin", output="cache/contacts.css", "css/contacts.css", "css/forms.css", "css/buttons.css" %}
+	{% assets filters="datauri,cssmin", output="cache/contacts.css", "css/contacts.css", "css/form.css" %}
 		<link rel="stylesheet" href="{{ ASSET_URL }}">
 	{% endassets %}
 {% endblock %}
 
 
-{% block title %} Contacts | {{ super() }}{% endblock %}
+{% block title %} Contacts —{{ " " }}{{ super() }}{% endblock %}
 
 {% block content %}
-<section id="content" class="page container">
-	<div class="sixteen columns">
-		<h1 class="no-bottom">Contacts</h1>
+<section class="contacts_page row">
+	<div class="medium-12 columns">
+		<h1 class="no_padding">Contacts</h1>
 		<hr class="no-top half-bottom">
 	</div>
-	<div class="ten columns">
+	<div class="medium-8 columns">
 		{% include "messages.html" %}
 
 		<form action="." method='POST'>
 			{{ form.csrf_token }}
 
-			<div class="required half">
-					{{ form.name.label }}
-					{% if form.name.errors %}
-						<ul class="errors">
-							{% for error in form.name.errors %}
-							<li>{{ error }}</li>
-							{% endfor %}
-						</ul>
-					{% endif %}
-					{{ form.name(required=true,placeholder="Ваше полное имя") }}
+			<div class="required">
+				{{ form.name.label }}
+				{% if form.name.errors %}
+					<ul class="errors">
+						{% for error in form.name.errors %}
+						<li>{{ error }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+				{{ form.name(required=true,placeholder="Ваше полное имя") }}
 
 
-					{{ form.email.label }}
-					{% if form.email.errors %}
-						<ul class="errors">
-							{% for error in form.email.errors %}
-							<li>{{ error }}</li>
-							{% endfor %}
-						</ul>
-					{% endif %}
-					{{ form.email(required=true,placeholder="Ваш E-Mail") }}
+				{{ form.email.label }}
+				{% if form.email.errors %}
+					<ul class="errors">
+						{% for error in form.email.errors %}
+						<li>{{ error }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+				{{ form.email(required=true,placeholder="Ваш E-Mail") }}
 			</div>
 
 			<div {% if form.message.flags.required %} class="required"{% endif %}>
@@ -58,22 +58,22 @@
 					{{ form.message(rows=8,required=true,placeholder="Текст сообщения") }}
 			</div>
 
-			<div class="text-right">
-				<button class="blue icon-mail" type="submit">Отправить сообщение</button>
+			<div class="buttons">
+				<input class="default" type="submit" value="Send message">
 			</div>
 		</form>
 	</div>
-	<div class="six columns">
-		<h3>Other methods</h3>
+	<div class="medium-4 columns">
+		<h3 class="no_bottom">Other methods</h3>
 		<div class="other_contacts">
 			<a class="gplus" href="https://plus.google.com/108016109141914573964/posts">Google+: Gordio</a>
 			<a class="mail" href="mailto:work@gordio.pp.ua">E-Mail: admin@gordio.pp.ua</a>
 			<a class="skype" href="skype:viliker">Skype: viliker</a>
 			{# <a class="jabber" href="xmpp:gordio@ya.ru">Jabber: gordio@ya.ru</a> #}
-			<a class="icq" href="#">ICQ: 5-700-112</a>
+			<!-- <a class="icq" href="#">ICQ: 5-700-112</a> -->
 			<a class="phone" href="#">(097) 693-49-76</a>
 			<a class="irc" href="irc://irc.freenode/">FreeNode: Gordio</a>
-			<a class="irc" href="irc://irc.rusnet/">RusNet: Gordio</a>
+			<!-- <a class="irc" href="irc://irc.rusnet/">RusNet: Gordio</a> -->
 		</div>
 	</div>
 </section>

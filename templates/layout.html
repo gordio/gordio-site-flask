@@ -11,7 +11,8 @@
 
 	{% block css %}
 	{% assets filters="cssmin", output="cache/base.css",
-		"css/base.css", "css/skeleton.css", "css/layout.css", "css/font-icons.css" %}
+		"css/normalize.css", "css/base.css", "css/foundation.css",
+		"css/design.css", "css/navigation.css", "css/font-icons.css" %}
 		<link rel="stylesheet" href="{{ ASSET_URL }}">
 	{% endassets %}
 	{% endblock %}
@@ -20,39 +21,35 @@
 	{% endblock %}
 </head>
 <body>
-	{% include "nav.html" %}
+	{% include "navigation.html" %}
 
-	{% block content %}
-	{% endblock %}
+	{% for category, message in get_flashed_messages(with_categories=true) %}
+	<div class="message {{ " " }}{{ category }}{{ " " }}">
+		{{ message }}
+	</div>
+	{% endfor %}
 
-{#	<script type="text/javascript">
-		// TODO: Implement
-		el = document.getElementById('test_id')
-		Hammer(el, {
-			swipe_velocity: 0.2
-		}).on("swipeleft", function() {
-			/*alert('you swiped left!');*/
-		}).on("swiperight", function() {
-			/*alert("Swipe right");*/
-		})
-	</script> #}
+	<section id="content" class="container">
+		<section class="page">
+			{% block content %}
+			{% endblock %}
+		</section>
+	</section>
 
 	{#-- Yandex.Metrika counter -#}
 	{% if not DEBUG %}
-	<div style="display:none;">
-		<script type="text/javascript">
-			(function(w, c) {
-				(w[c] = w[c] || []).push(function() {
-					try {
-						w.yaCounter11936827 = new Ya.Metrika({id:11936827, enableAll: true, webvisor:true});
-					}
-					catch(e) { }
-				});
-			})(window, "yandex_metrika_callbacks");
-		</script>
-	</div>
+	<script type="text/javascript">
+		(function(w, c) {
+			(w[c] = w[c] || []).push(function() {
+				try {
+					w.yaCounter11936827 = new Ya.Metrika({id:11936827, enableAll: true, webvisor:true});
+				}
+				catch(e) { }
+			});
+		})(window, "yandex_metrika_callbacks");
+	</script>
 	<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
-	<noscript><div><img src="//mc.yandex.ru/watch/11936827" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+	<noscript><img src="//mc.yandex.ru/watch/11936827" style="position:absolute;left:-9999px" alt=""></noscript>
 	{% endif %}
 	{#-- /Yandex.Metrika counter -#}
 </body>

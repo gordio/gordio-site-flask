@@ -73,6 +73,17 @@ def requires_auth(f):
 # VIEWS
 @app.route('/')
 def index():
+	return render_template('ukraine.html', **locals())
+
+
+@app.route('/stop/')
+def stop():
+	# FIXME: Random resources
+	return redirect('http://www.stopfake.org/', code=302)
+
+
+@app.route('/vcard/')
+def vcard():
 	return render_template('vcard.html', **locals())
 
 
@@ -97,6 +108,8 @@ def article_view(slug):
 @app.route('/article/add/', methods=['GET', 'POST'])
 @requires_auth
 def article_add():
+	""" Add new article or render form """
+	return 'Disabled'
 	from models import Article, Tag, db
 	from forms import ArticleForm
 
@@ -142,9 +155,8 @@ def article_add():
 @app.route('/article/<slug>/edit/', methods=['GET', 'POST'])
 @requires_auth
 def article_edit(slug):
-	"""
-	Render edit article form by <slug> or update data from `POST`
-	"""
+	""" Render edit article form by <slug> or update data from `POST` """
+	return 'Disabled'
 	from models import Article, Tag, db
 	from forms import ArticleForm
 
@@ -205,8 +217,10 @@ def articles(page):
 	Render all articles
 	"""
 	from models import Article
+	count = app.config['ARTICLES_PER_PAGE']
 
-	articles = Article.query.filter(Article.pub_date < datetime.now()).order_by(Article.pub_date.desc())
+	articles = Article.query.filter(Article.pub_date < datetime.now())\
+	.order_by(Article.pub_date.desc()).limit(count).offset((count * page) - count)
 
 	for article in articles:
 		try:
@@ -278,7 +292,7 @@ def contacts():
 			# записываем дату отправки
 			session['contacts_send_next_message_time'] = int(time.time()) + (60 * 15) # 15 минут
 			mail.close()
-			return redirect(url_for('contacts'))
+			return redirect(url_for('contacts'), code=302)
 
 	return render_template('contacts.html', form=form)
 # }}}

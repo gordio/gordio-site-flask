@@ -4,18 +4,18 @@
 {% block title %}About —{{ " " }}{{ super() }}{% endblock %}
 
 {% block content %}
-<section id="content" class="page container">
-<article class="home">
-	<div class="photo six columns">
-		<img src="{{ url_for('static', filename="img/photo.jpg") }}" alt="Photo">
+<article class="about_page row">
+	<div class="medium-5 columns">
+		<img class="photo" src="{{ url_for('static', filename="img/photo.jpg") }}" alt="Photo">
 	</div>
-	<div class="ten columns">
+	<div class="medium-7 columns">
 		<span class="person">
-			<h2 class="no-bottom">Гордиенко Олег</h2>
-			<p>Web and *nix Developer</p>
+			<h2 class="no_bottom">Гордиенко Олег</h2>
+			<h4 class="no_padding">Web and *nix Developer</h4>
 		</span>
 
-		<p>Все должно быть правильно, а то что не правильно - должно быть по правильному неправильно! Склонен к чрезмерной оптимизации. Не люблю, когда над душой стоят, подгоняют и отвлекают.</p>
+		<!-- <p>Все должно быть правильно, а то что не правильно - должно быть по правильному неправильно! Склонен к чрезмерной оптимизации. Не люблю, когда над душой стоят, подгоняют и отвлекают.</p> -->
+
 		<p>В свободное время могу попрактиковаться в игре на гитаре. Или выехать на MTB покатать под Blues, Rock&Roll, Metal, Industrial.</p>
 
 		<h4>Навыки</h4>
@@ -32,11 +32,11 @@
 		<ul>
 			<li>Программирование (C, Python, Go, Lua)</li>
 			<li>Верстка (HTML4.1, HTML5, CSS2.1, CSS3)</li>
+			<li>Game-Dev (Unity3D)</li>
 			<li>Электроника</li>
 			<li>Музыка</li>
 			<li>Вело/мото</li>
 		</ul>
 	</div>
 </article>
-</section>
 {% endblock %}

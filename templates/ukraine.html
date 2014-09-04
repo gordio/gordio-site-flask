@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ukraine</title>
+    <style>
+    .ukraine {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0;
+        padding: 0;
+        margin-top: -5em;
+        height: 10em;
+        margin-left: -9em;
+        width: 18em;
+        font-size: 1.25em;
+
+
+        -webkit-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+
+        -webkit-border-radius: 0.25em;
+        -moz-border-radius: 0.25em;
+        border-radius: 0.25em;
+
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .ukraine div {
+        text-align: center;
+        vertical-align: middle;
+        line-height: 5em;
+        font-size: 1em;
+        height: 50%;
+    }
+    .ukraine .top {
+        color: #EEE;
+        background: #4a71c3;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+
+        border: 0.0625em solid rgba(0, 0, 0, 0.5);
+        border-bottom: 0;
+
+        -webkit-border-radius: 0.25em 0.25em 0 0;
+        -moz-border-radius: 0.25em 0.25em 0 0;
+        border-radius: 0.25em 0.25em 0 0;
+    }
+    .ukraine .bottom {
+        color: #333;
+        background: #eddb21;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+
+        border: 0.0625em solid rgba(0, 0, 0, 0.25);
+        border-top: 0;
+
+        -webkit-border-radius: 0 0 0.25em 0.25em;
+        -moz-border-radius: 0 0 0.25em 0.25em;
+        border-radius: 0 0 0.25em 0.25em;
+    }
+    .ans a {
+        padding: 2em;
+    }
+    </style>
+</head>
+<body>
+    <div class="ukraine">
+        <div class="top">Ukraine</div>
+        <div class="bottom">Independent</div>
+		  <div class="ans">
+          <a href="{{ url_for('stop') }}">No</a><a href="{{ url_for('vcard')}}">Yes</a>
+          </div>
+    </div>
+</body>
+</html>

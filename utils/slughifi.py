@@ -1,7 +1,10 @@
 ﻿# -*- coding: utf-8 -*-
 
 import re
-from types import UnicodeType
+try:
+	from types import UnicodeType
+except Exception:
+	pass
 import unicodedata
 
 
@@ -50,14 +53,15 @@ def slughifi(value, overwrite_char_map={}):
 
 	"""
 	# unicodification
-	if not isinstance(value, UnicodeType):
-		value = unicode(value, 'utf-8', 'ignore')
+	try:
+		if not isinstance(value, UnicodeType):
+			value = unicode(value, 'utf-8', 'ignore')
+	except Exception:
+		pass
+
 	# overwrite chararcter mapping
 	char_map.update(overwrite_char_map)
 	# try to replace chars
 	value = re.sub('[^a-zA-Z0-9\\s\\-]{1}', replace_char, value)
 	value = slugify(value)
 	return value.encode('ascii', 'ignore')
-
-
-# vim: set fdm=marker fdc=0 ts=4 sw=4 tw=100 fo-=t ff=unix ft=python:

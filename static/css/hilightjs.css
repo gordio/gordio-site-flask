@@ -1,0 +1,119 @@
+/* Code hilight styles
+ * Author: Oleg Gordienko (Gordio) <me@gordio.hljs-pp.hljs-ua>
+ */
+
+/* Fix code default border */
+pre code * {
+	border: none !important;
+}
+
+pre .hljs-keyword,
+pre .hljs-css .hljs-rule .hljs-keyword,
+pre .hljs-winutils,
+pre .hljs-javascript .hljs-title,
+pre .hljs-lisp .hljs-title,
+pre .hljs-subst {
+	color: #AA5800;
+	/*font-weight: bold;*/
+}
+pre .hljs-number,
+pre .hljs-hexcolor {
+	color: #6B3479;
+}
+pre .hljs-decorator {
+	color: #694080;
+}
+pre .hljs-string,
+pre .hljs-tag .hljs-value,
+pre .hljs-phpdoc,
+pre .hljs-tex .hljs-formula {
+	color: #407500;
+}
+pre .hljs-comment,
+pre .hljs-template_comment,
+pre .hljs-diff .hljs-header,
+pre .hljs-javadoc {
+	color: #8B6F32;
+}
+
+pre .hljs-function {
+	color: #3D6C8E;
+}
+pre .hljs-tag,
+pre .hljs-css .hljs-keyword,
+pre .hljs-html .hljs-keyword,
+pre .hljs-tag .hljs-title,
+pre .hljs-django .hljs-tag .hljs-keyword {
+  color: #000080;
+  font-weight: normal
+}
+pre .hljs-class,
+pre .hljs-class .hljs-title,
+pre .hljs-tex .hljs-command {
+	color: #000;
+}
+pre .hljs-regexp {
+  color: #A80028;
+}
+
+pre .hljs-symbol,
+pre .hljs-ruby .hljs-symbol .hljs-string,
+pre .hljs-ruby .hljs-symbol .hljs-keyword,
+pre .hljs-ruby .hljs-symbol .hljs-keymethods,
+pre .hljs-lisp .hljs-keyword,
+pre .hljs-tex .hljs-special {
+  color: #990073
+}
+pre .hljs-attribute,
+pre .hljs-variable,
+pre .hljs-instancevar,
+pre .hljs-lisp .hljs-body {
+  color: #176EB3;
+}
+pre .hljs-title,
+pre .hljs-id {
+	color: #077DD3;
+	/*font-weight: bold;*/
+}
+pre .hljs-javascript .hljs-title,
+pre .hljs-lisp .hljs-title,
+pre .hljs-subst {
+  font-weight: normal
+}
+pre .hljs-params {
+	/*	color: #f008F0;*/
+}
+pre .hljs-preprocessor,
+pre .hljs-pi,
+pre .hljs-doctype,
+pre .hljs-shebang,
+pre .hljs-cdata {
+	color: #050000;
+}
+
+pre .hljs-builtin,
+pre .hljs-built_in,
+pre .hljs-lisp .hljs-title {
+	color: #3D6C8E;
+}
+
+pre .hljs-deletion {
+  background: #fdd
+}
+
+pre .hljs-addition {
+  background: #dfd
+}
+
+pre .hljs-diff .hljs-change {
+  background: #0086b3
+}
+
+pre .hljs-chunk {
+  color: #aaa
+}
+
+pre .hljs-tex .hljs-formula {
+  opacity: 0.hljs-5;
+}
+

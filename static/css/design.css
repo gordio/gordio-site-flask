@@ -1,0 +1,70 @@
+
+/*h1.title {
+	font-family: 'Ultra', 'Arial', sans-serif;
+	text-transform: uppercase;
+	color: #333;
+	text-shadow: 0 0.03125em rgba(255, 255, 255, 0.7), 0 0.0625em rgba(0, 0, 0, 0.3);
+}*/
+
+
+/* Fix foundation */
+.row {
+	max-width: initial !important;
+}
+
+div, section, img, nav {
+	transition: 0.25s;
+}
+
+a,
+a:link,
+a:visited {
+    color: #6DA3BD;
+	text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: #53798b;
+	text-decoration: underline;
+}
+
+
+.page {
+	padding: .9375em 0;
+	color: #37474E;
+	background: #FAFAFA;
+	overflow: hidden;
+}
+
+
+/* Pages */
+img.photo {
+	width: 100%;
+	border: 0.0625em solid rgba(0, 0, 0, 0.3);
+
+	border-radius: 0.1875em;
+	box-shadow: 0 0.0625em 0.25em rgba(0, 0, 0, 0.2);
+}
+
+
+@media only screen and (min-width: 40.063em) {
+	.page {
+		margin: 0.625em;
+		border: 0.0625em solid #C3CCD0;
+
+		border-radius: 0.125em;
+		box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.15), inset 0 0 0 0.0625em #FFF;
+	}
+	.person h2 {
+		margin-top: 0;
+	}
+}
+
+@media only screen and (min-width: 72em) {
+	.container {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 72em;
+	}
+}

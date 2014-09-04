@@ -2,49 +2,40 @@
 
 
 {% block css %}
-	{{ super() }}
-	{% assets filters="datauri,cssmin", output="cache/vcard.css", "css/vcard.css" %}
-		<link rel="stylesheet" href="{{ ASSET_URL }}">
-	{% endassets %}
+{{ super() }}
+{% assets filters="datauri,cssmin", output="cache/vcard.css", "css/vcard.css" %}
+<link rel="stylesheet" href="{{ ASSET_URL }}">
+{% endassets %}
 {% endblock %}
-
 
 
 {% block title %}VCard —{{ " " }}{{ super() }}{% endblock %}
 
 {% block content %}
-	<div id="hcard-Oleg-Vasilievich-Gordienko" class="vcard">
-			<h1 class="url fn n">
-				<span class="family-name">Гордиенко</span>
-				<span class="given-name">Олег</span>
-				<span class="additional-name">Васильевич</span>
-			</h1>
-		<div class="category">Web and *nix Developer</div>
-		<div class="profiles">
-			<a class="profile googleplus url" rel="me" href="http://plus.google.com/108016109141914573964/posts" title="Google Plus Profile" aria-hidden="true" data-icon="&#x21;"></a>
-			<a class="profile linkedin url" rel="me" href="http://ua.linkedin.com/in/gordio/" title="LinkedIn Profile" aria-hidden="true" data-icon="&#x22;"></a>
-			<a class="profile github url" rel="me" href="http://github.com/gordio/" title="Github Profile" aria-hidden="true" data-icon="&#x23;"></a>
-			<a class="profile stackoverflow url" rel="me" href="http://stackoverflow.com/users/1385810/gordio" title="Stackoverflow Profile" aria-hidden="true" data-icon="&#x24;"></a>
-			<a class="profile foursquare url last" rel="me" href="http://foursquare.com/user/58103563" title="Foursquare Profile" aria-hidden="true" data-icon="&#x25;"></a>
+<div id="hcard-Oleg-Vasilievich-Gordienko" class="vcard">
+	<h1 class="url fn n">
+		<span class="family-name">Гордиенко</span>
+		<span class="given-name">Олег</span>
+		<span class="additional-name">Васильевич</span>
+	</h1>
+	<div class="category">Web and *nix Developer</div>
+	<div class="profiles">
+		<a class="profile googleplus url" rel="me" href="http://plus.google.com/108016109141914573964/posts" title="Google Plus Profile" aria-hidden="true" data-icon="&#x21;"></a>
+		<a class="profile linkedin url" rel="me" href="http://ua.linkedin.com/in/gordio/" title="LinkedIn Profile" aria-hidden="true" data-icon="&#x22;"></a>
+		<a class="profile github url" rel="me" href="http://github.com/gordio/" title="Github Profile" aria-hidden="true" data-icon="&#x23;"></a>
+		<a class="profile stackoverflow url" rel="me" href="http://stackoverflow.com/users/1385810/gordio" title="Stackoverflow Profile" aria-hidden="true" data-icon="&#x24;"></a>
+		<a class="profile foursquare url last" rel="me" href="http://foursquare.com/user/58103563" title="Foursquare Profile" aria-hidden="true" data-icon="&#x25;"></a>
+	</div>
+	<div class="footer">
+		<div class="left">
+			<a class="tel icon-phone" href="tel:+380976934976">(097) 693-49-76</a>
+			<a class="email icon-mail" href="mailto:admin@gordio.pp.ua">me@gordio.pp.ua</a>
 		</div>
-		<div class="footer">
-			<div class="left">
-				<div class="line">
-					<a class="tel icon-phone" href="tel:+380976934976">(097) 693-49-76</a>
-				</div>
-				<div class="line">
-					<a class="email icon-mail" href="mailto:me@gordio.pp.ua">me@gordio.pp.ua</a>
-				</div>
-			</div>
-			<div class="right">
-				<div class="line">
-					<a class="url icon-location" href="#">Ukraine</a>
-				</div>
-				<div class="line">
-					<a class="url icon-earth" href="http://www.gordio.pp.ua/">www.gordio.pp.ua</a>
-				</div>
-			</div>
+		<div class="right">
+			<a class="url icon-location" href="#">Ukraine</a>
+			<a class="url icon-earth" href="http://www.gordio.pp.ua/">www.gordio.pp.ua</a>
 		</div>
 	</div>
-	<img class="qrcode" src="{{ url_for('static', filename="img/code.png") }}" alt="QR Code">
+</div>
+<img class="qrcode" src="{{ url_for('static', filename='img/code.png') }}" alt="QR Code">
 {% endblock %}
