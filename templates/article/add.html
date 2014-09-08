@@ -5,8 +5,9 @@
 
 {% block css %}
 	{{ super() }}
-	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/forms.css") }}" media="all">
-	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/buttons.css") }}" media="all">
+	{% assets filters="datauri,cssmin", output="cache/admin_articles.css", "css/articles.css", "css/form.css" %}
+	<link rel="stylesheet" href="{{ ASSET_URL }}">
+	{% endassets %}
 {% endblock %}
 
 
@@ -16,56 +17,48 @@
 {% endblock %}
 
 
-{% block title %}Add article —{{ " " }}Blog —{{ " " }}{{ super() }}{% endblock %}
+{% block title %}Add article — Blog —{{ " " }}{{ super() }}{% endblock %}
 
 {% block content %}
-<section id="content" class="page container">
-	<div class="sixteen columns">
-		<h1 class="no-bottom">Add article</h1>
-		<hr class="no-top half-bottom">
-
+<section class="raw">
+	<div class="medium-12 columns">
+		<h1 class="no_padding">Add article</h1>
+		<hr>
 		{% include "messages.html" %}
-
 	</div>
 	<form action="." method="POST">
 		{{ form.csrf_token }}
 
-		<div class="eight columns">
+		<div class="medium-6 columns">
 			{{ render_field(form.title, class="full", placeholder="Document title") }}
 		</div>
-		<div class="eight columns">
+		<div class="medium-6 columns">
 			{{ render_field(form.slug, class="full", placeholder="Document url name") }}
 		</div>
 
-		<div class="sixteen columns">
+		<div class="medium-12 columns">
 			{{ render_field(form.description, class="full", rows=2, placeholder="Markdown document description", max=50) }}
 		</div>
 
-		<div class="sixteen columns">
+		<div class="medium-12 columns">
 			{{ render_field(form.content, class="full", rows=14, placeholder="Markdown document body", max=50) }}
 
 			{{ render_field(form.tags, class="full", placeholder="Tags for document") }}
 		</div>
 
-		<div class="eight columns">
+		<div class="medium-6 columns">
 			{{ render_field(form.pub_date, class="full", placeholder="Date when document posted") }}
 		</div>
-		<div class="eight columns">
+		<div class="medium-6 columns">
 			{#{{ render_field(form.upd_date, class="full", placeholder="Date where document update", readonly=true) }}#}
 		</div>
 
-		<div class="sixteen columns">
-			<div class="text-right buttons">
-				<hr class="half-bottom">
-				<input type="button" name="" onclick="history.back(1);return true;" value="Cancel">
-				<div class="split"></div>
-				<input class="green" type="submit" name="submit" value="Add article">
-			</div>
+		<div class="medium-12 columns buttons">
+			<hr>
+			<a href="javascript:window.history.back(-1)">Cancel</a>
+			<input class="default" type="submit" name="submit" value="Add Article">
 		</div>
 	</form>
-	<script type="text/javascript">
-		init_title();
-	</script>
 </section>
 {% endblock %}
 

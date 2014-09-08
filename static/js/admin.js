@@ -10,16 +10,26 @@ function slugify(text)
 	return text;
 }
 
+
 /* Init form element: make slug for title, if slug is empty */
-function init_title()
-{
+window.addEventListener('load', function() {
 	var title = document.getElementById('title');
+	if (title === 'null') {
+		return;
+	}
 
-	title.onblur = function() {
-		var slug = document.getElementById('slug');
+	var slug = document.getElementById('slug');
+	slug.useredited = false;
+	slug.onchange = function(e) {
+		this.useredited = true;
+		this.onchange = null;
+	}
 
+	title.onchange = function() {
 		if (!slug.value) {
+			slug.value = slugify(this.value);
+		} else if (!slug.useredited) {
 			slug.value = slugify(this.value);
 		}
 	}
-}
+});

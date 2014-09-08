@@ -1,0 +1,13 @@
+.pagination {
+    margin-top: 2em;
+    text-align: center;
+    clear: both;
+}
+
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 0 0.5em;
+    line-height: 2em;
+}
+

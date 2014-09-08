@@ -109,7 +109,6 @@ def article_view(slug):
 @requires_auth
 def article_add():
 	""" Add new article or render form """
-	return 'Disabled'
 	from models import Article, Tag, db
 	from forms import ArticleForm
 
@@ -156,7 +155,6 @@ def article_add():
 @requires_auth
 def article_edit(slug):
 	""" Render edit article form by <slug> or update data from `POST` """
-	return 'Disabled'
 	from models import Article, Tag, db
 	from forms import ArticleForm
 

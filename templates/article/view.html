@@ -1,16 +1,13 @@
 {% extends 'article/list.html' %}
 
 
-{% block css %}
-	{{ super() }}
-	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/code.css") }}" media="all">
-	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/buttons.css") }}" media="all">
-{% endblock %}
-
 {% block js %}
 	{{ super() }}
-	<link href="{{ url_for('static', filename="js/highlight.pack.js") }}"
-	onload="hljs.tabReplace = '    '; hljs.initHighlighting(); hljs.initHighlightingOnLoad()">
+	{% assets filters="rjsmin", output="cache/articles_view.js",
+	"js/highlight.pack.js", "js/highlight.init.js",
+	"js/disqus.init.js" %}
+		<script src="{{ ASSET_URL }}"></script>
+	{% endassets %}
 {% endblock %}
 
 
@@ -49,5 +46,9 @@
 	<div class="medium-12 columns content">
 		{{ article.content|markdown }}
 	</div>
+
+	<hr>
+	<div id="disqus_thread"></div>
+	<noscript>Please enable JavaScript to view the comments.</noscript>
 </article>
 {% endblock %}

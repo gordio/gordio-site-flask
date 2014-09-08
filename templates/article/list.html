@@ -4,8 +4,17 @@
 
 {% block css %}
 	{{ super() }}
-	{% assets filters="cssmin", output="cache/articles.css", "css/articles.css" %}
+	{% assets filters="cssmin", output="cache/articles.css",
+	"css/articles.css", "css/pagination.css", "css/hilightjs.css" %}
 		<link rel="stylesheet" href="{{ ASSET_URL }}">
+	{% endassets %}
+{% endblock %}
+
+{% block js %}
+	{{ super() }}
+	{% assets filters="rjsmin", output="cache/articles_list.js",
+	"js/hyphenator.js", "js/patterns/ru.js", "js/hyphenator.init.js" %}
+		<script src="{{ ASSET_URL }}"></script>
 	{% endassets %}
 {% endblock %}
 
@@ -24,9 +33,9 @@
 				<h3 class="no_padding">{{ article.title }}</h3 class="no_bottom">
 			</a>
 			{% include "tags.html" ignore missing %}
-			<div class="description">
+			<p class="description">
 				{{ article.description }}
-			</div>
+			</p>
 			<a class="more" href="{{ url_for('article_view', slug=article.slug) }}#cat">Продолжить чтение » </a>
 		</article>
 		{% if loop.index is divisibleby(2) %}
@@ -35,5 +44,6 @@
 	{% else %}
 		<p style="margin: 10em 0; text-align: center;">No articles. <a href="javascript:window.history.back(-1);">Back</a></p>
 	{% endfor %}
+
 </article>
 {% endblock %}
