@@ -1,4 +1,4 @@
-{% extends 'article/list.html' %}
+{% extends 'articles/list.html' %}
 
 
 {% block js %}
@@ -39,8 +39,7 @@
 				<a class="tag" href="{{ url_for('articles_tagged', tag_slug=tag.slug) }}">{{ tag.title }}</a>{% if loop.last %}{% else %},{{ " " }}{% endif %}
 			{% endfor %}
 		</div>
-		<hr class="no-top half-bottom">
-		{% include "messages.html" %}
+		<hr>
 	</div>
 
 	<div class="medium-12 columns content">

@@ -13,19 +13,19 @@
 
 {% block js %}
 	{{ super() }}
+	<script type="text/javascript" src="{{ url_for('static', filename="js/admin.js") }}"></script>
 {% endblock %}
 
 
-{% block title %}Edit article — Blog —{{ " " }}{{ super() }}{% endblock %}
+{% block title %}Add article — Blog —{{ " " }}{{ super() }}{% endblock %}
 
 {% block content %}
 <section class="raw">
 	<div class="medium-12 columns">
-		<h1 class="no_padding">Edit article</h1>
-		<hr class="no-top half-bottom">
-
-		{% include "messages.html" %}
+		<h1 class="no_padding">Add article</h1>
+		<hr>
 	</div>
+
 	<form action="." method="POST">
 		{{ form.csrf_token }}
 
@@ -37,11 +37,11 @@
 		</div>
 
 		<div class="medium-12 columns">
-			{{ render_field(form.description, class="full", rows=3, placeholder="Simple document description") }}
+			{{ render_field(form.description, class="full", rows=4, placeholder="Simple document description", max=50) }}
 		</div>
 
 		<div class="medium-12 columns">
-			{{ render_field(form.content, class="full", rows=14, placeholder="Markdown document body") }}
+			{{ render_field(form.content, class="full", rows=14, placeholder="Markdown document body", max=50) }}
 
 			{{ render_field(form.tags, class="full", placeholder="Tags for document") }}
 		</div>
@@ -50,13 +50,13 @@
 			{{ render_field(form.pub_date, class="full", placeholder="Date when document posted") }}
 		</div>
 		<div class="medium-6 columns">
-			{{ render_field(form.upd_date, class="full", placeholder="Empty for auto-now") }}
+			{#{{ render_field(form.upd_date, class="full", placeholder="Date where document update", readonly=true) }}#}
 		</div>
 
 		<div class="medium-12 columns buttons">
-			<hr class="half-bottom">
+			<hr>
 			<a href="javascript:window.history.back(-1)">Cancel</a>
-			<input class="default" type="submit" name="submit" value="Update article">
+			<input class="default" type="submit" name="submit" value="Add Article">
 		</div>
 	</form>
 </section>

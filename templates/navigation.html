@@ -2,7 +2,7 @@
     <div class="container">
         <nav class="top_menu">
             <a {% if request.endpoint == "about" %}class="active"{% endif %} href="{{ url_for('about') }}">About</a>
-            <a {% if request.endpoint == "articles" %}class="active"{% endif %} href="{{ url_for('articles') }}">Blog</a>
+            <a {% if request.endpoint.count("articles") != 0 %}class="active"{% endif %} href="{{ url_for('articles_list') }}">Blog</a>
             <a class="home {% if request.endpoint == "vcard" %}{{ " " }}active{% endif %}" href="{{ url_for('vcard') }}" data-icon="&#x2a;"></a>
             <span class="disabled">Work</span>
             <a {% if request.endpoint == "contacts" %}class="active"{% endif %} href="{{ url_for('contacts') }}">Contact</a>

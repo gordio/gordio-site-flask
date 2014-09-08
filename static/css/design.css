@@ -56,6 +56,9 @@ img.photo {
 		border-radius: 0.125em;
 		box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.15), inset 0 0 0 0.0625em #FFF;
 	}
+	.message {
+		margin: 0.625em !important;
+	}
 	.person h2 {
 		margin-top: 0;
 	}

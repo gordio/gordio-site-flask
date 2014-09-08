@@ -23,20 +23,16 @@
 
 {% block content %}
 <section class="articles_list row">
-	<div class="medium-12 columns">
-	{% include "messages.html" %}
-	</div>
-
 	{% for article in articles %}
 		<article class="articles-list_item medium-6 columns">
-			<a href="{{ url_for('article_view', slug=article.slug) }}" title="Открыть материал «{{ article.title }}»">
+			<a href="{{ url_for('articles_view', slug=article.slug) }}" title="Открыть материал «{{ article.title }}»">
 				<h3 class="no_padding">{{ article.title }}</h3 class="no_bottom">
 			</a>
 			{% include "tags.html" ignore missing %}
 			<p class="description">
 				{{ article.description }}
 			</p>
-			<a class="more" href="{{ url_for('article_view', slug=article.slug) }}#cat">Продолжить чтение » </a>
+			<a class="more" href="{{ url_for('articles_view', slug=article.slug) }}#cat">Продолжить чтение » </a>
 		</article>
 		{% if loop.index is divisibleby(2) %}
 		<div class="clear"></div>

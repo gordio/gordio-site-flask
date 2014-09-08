@@ -93,8 +93,8 @@ def about():
 
 
 # Articles {{{
-@app.route('/article/<slug>/')
-def article_view(slug):
+@app.route('/articles/view/<slug>/')
+def articles_view(slug):
 	"""
 	Show article from <slug> or 404
 	"""
@@ -102,12 +102,12 @@ def article_view(slug):
 
 	article = Article.by_slug(slug).filter(Article.pub_date < datetime.now()).first_or_404()
 
-	return render_template('article/view.html', **locals())
+	return render_template('articles/view.html', **locals())
 
 
-@app.route('/article/add/', methods=['GET', 'POST'])
+@app.route('/articles/add/', methods=['GET', 'POST'])
 @requires_auth
-def article_add():
+def articles_add():
 	""" Add new article or render form """
 	from models import Article, Tag, db
 	from forms import ArticleForm
@@ -146,12 +146,12 @@ def article_add():
 			db.session.commit()
 
 			flash("Article added.", 'success')
-			return redirect(url_for('article_view', slug=article.slug))
+			return redirect(url_for('articles_view', slug=article.slug))
 
-	return render_template('article/add.html', **locals())
+	return render_template('articles/add.html', **locals())
 
 
-@app.route('/article/<slug>/edit/', methods=['GET', 'POST'])
+@app.route('/articles/edit/<slug>/', methods=['GET', 'POST'])
 @requires_auth
 def article_edit(slug):
 	""" Render edit article form by <slug> or update data from `POST` """
@@ -203,14 +203,14 @@ def article_edit(slug):
 			db.session.commit()
 
 			flash("Article updated success.", 'success')
-			return redirect(url_for('article_view', slug=form.slug.data))
+			return redirect(url_for('articles_view', slug=form.slug.data))
 
-	return render_template('article/edit.html', **locals())
+	return render_template('articles/edit.html', **locals())
 
 
 @app.route('/articles/', defaults={'page': 1})
 @app.route('/articles/page/<int:page>/')
-def articles(page):
+def articles_list(page):
 	"""
 	Render all articles
 	"""
@@ -218,7 +218,7 @@ def articles(page):
 	count = app.config['ARTICLES_PER_PAGE']
 
 	articles = Article.query.filter(Article.pub_date < datetime.now())\
-	.order_by(Article.pub_date.desc()).limit(count).offset((count * page) - count)
+	.order_by(Article.pub_date.desc()) #FIXME: .limit(count).offset((count * page) - count)
 
 	for article in articles:
 		try:
@@ -229,7 +229,7 @@ def articles(page):
 		else:
 			article.description = desc
 
-	return render_template('article/list.html', **locals())
+	return render_template('articles/list.html', **locals())
 
 
 # Tags
@@ -244,7 +244,7 @@ def articles_tagged(tag_slug, page):
 	tag = Tag.by_slug(tag_slug).first_or_404()
 	articles = tag.articles.filter(Article.pub_date < datetime.now())
 
-	return render_template('article/list.html', **locals())
+	return render_template('articles/list.html', **locals())
 # }}}
 
 
