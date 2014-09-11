@@ -262,10 +262,10 @@ def contacts():
 	if request.method == 'POST' and form.validate():
 
 		# Проверка на частоту отправок
-		send_time = session.get('contacts_send_next_message_time')
-		if send_time > int(time.time()):
-			flash("Very frequantly.", 'error')
-			return render_template('contacts.html', **locals())
+		# send_time = session.get('contacts_send_next_message_time')
+		# if send_time > int(time.time()):
+		# 	flash("Very frequantly.", 'error')
+		# 	return render_template('contacts.html', **locals())
 
 
 		from smtplib import SMTP
@@ -276,9 +276,9 @@ def contacts():
 		msg['Subject'] = "GWP: '%s'" % form.name.data
 		msg['From'] = form.email.data
 
-		mail = SMTP('smtp.bloodhost.ru', 25)
+		mail = SMTP(app.config['SMTP_HOST'], app.config['SMTP_PORT'])
 		mail.set_debuglevel(False)
-		mail.login('noreply@gordio.pp.ua', '35056')
+		mail.login(app.config['SMTP_LOGIN'], app.config['SMTP_PASSWORD'])
 
 		try:
 			mail.sendmail('noreply@gordio.pp.ua', ['gordio@ya.ru',], msg.as_string())
