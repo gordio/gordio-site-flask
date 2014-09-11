@@ -82,9 +82,7 @@ def about():
 # Articles {{{
 @app.route('/articles/view/<slug>/')
 def articles_view(slug):
-	"""
-	Show article from <slug> or 404
-	"""
+	""" Show article from <slug> or 404 """
 	from models import Article
 
 	article = Article.by_slug(slug).filter(Article.pub_date < datetime.now()).first_or_404()
@@ -198,9 +196,7 @@ def article_edit(slug):
 @app.route('/articles/', defaults={'page': 1})
 @app.route('/articles/page/<int:page>/')
 def articles_list(page):
-	"""
-	Render all articles
-	"""
+	""" Render all articles """
 	from models import Article
 	count = app.config['ARTICLES_PER_PAGE']
 
@@ -223,9 +219,7 @@ def articles_list(page):
 @app.route('/articles/tagged/<tag_slug>/', defaults={'page': 1})
 @app.route('/articles/tagged/<tag_slug>/page/<int:page>/')
 def articles_tagged(tag_slug, page):
-	"""
-	Render articles with tag_slug
-	"""
+	""" Render articles with <tag_slug> """
 	from models import Article, Tag
 
 	tag = Tag.by_slug(tag_slug).first_or_404()
@@ -238,17 +232,13 @@ def articles_tagged(tag_slug, page):
 # Contact Page {{{
 @app.route('/contacts/', methods=['GET', 'POST'])
 def contacts():
-	"""
-	Render and processing contact form
-	"""
+	""" Render and processing contact form """
 	import time
 	from forms import ContactForm
 
 	form = ContactForm(request.form)
 
 	if request.method == 'POST' and form.validate():
-
-		# Проверка на частоту отправок
 		# send_time = session.get('contacts_send_next_message_time')
 		# if send_time > int(time.time()):
 		# 	flash("Very frequantly.", 'error')
@@ -274,7 +264,6 @@ def contacts():
 			mail.close()
 		else:
 			flash("Message sended.", 'success')
-			# записываем дату отправки
 			#session['contacts_send_next_message_time'] = int(time.time()) + (60 * 15) # 15 минут
 			mail.close()
 			return redirect(url_for('contacts'), code=302)
