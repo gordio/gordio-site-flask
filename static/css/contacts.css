@@ -1,17 +1,30 @@
 
 .other_contacts a {
 	display: block;
-	margin: 0.3125em 0em;
-	padding: 0.0625em 0em;
-	padding-left: 1.25em;
-	background: transparent left center no-repeat;
+	margin: 1em 0;
 	text-decoration: none;
 }
 
-.other_contacts .gplus  { background-image: url("./../img/icons/contacts/application-plus.png"); }
+.other_contacts a:before {
+    padding-right: 0.25em;
+    color: #000;
+}
+
+.other_contacts a:hover {
+    color: #000;
+}
+
+/*.other_contacts .gplus  { background-image: url("./../img/icons/contacts/application-plus.png"); }
 .other_contacts .mail   { background-image: url("./../img/icons/contacts/mail-at-sign.png"); }
 .other_contacts .irc    { background-image: url("./../img/icons/contacts/irc.png"); }
 .other_contacts .jabber { background-image: url("./../img/icons/contacts/jabber.png"); }
 .other_contacts .icq    { background-image: url("./../img/icons/contacts/icq.png"); }
 .other_contacts .phone  { background-image: url("./../img/icons/contacts/phone.png"); }
-.other_contacts .skype  { background-image: url("./../img/icons/contacts/skype.png"); }
+.other_contacts .skype  { background-image: url("./../img/icons/contacts/skype.png"); }*/
+
+
+@media only screen and (max-width: 40.063em) {
+    .other_contacts a {
+        font-size: 1.5em;
+    }
+}

@@ -1,3 +1,8 @@
+/* Fix foundation width */
+.row {
+    max-width: initial !important;
+}
+
 .no_bottom {
     margin-bottom: 0;
 }
