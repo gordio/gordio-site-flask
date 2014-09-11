@@ -59,17 +59,6 @@ def requires_auth(f):
 
 # VIEWS
 @app.route('/')
-def index():
-	return render_template('ukraine.html', **locals())
-
-
-@app.route('/stop/')
-def stop():
-	# FIXME: Random resources
-	return redirect('http://www.stopfake.org/', code=302)
-
-
-@app.route('/vcard/')
 def vcard():
 	return render_template('vcard.html', **locals())
 

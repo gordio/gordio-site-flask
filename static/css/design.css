@@ -29,6 +29,14 @@ img.photo {
 	box-shadow: 0 0.0625em 0.25em rgba(0, 0, 0, 0.2);
 }
 
+@media only screen and (min-width: 15em) and (max-width: 40.063em) and (orientation : landscape) {
+	/* Fix very big photo */
+	img.photo {
+		/*display: none;*/
+		float: left;
+		width: 8em;
+	}
+}
 
 @media only screen and (min-width: 40.063em) {
 	.page {
