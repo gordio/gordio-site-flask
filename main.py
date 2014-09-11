@@ -1,9 +1,8 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-from flask import Flask, g, render_template, flash, redirect, session, request, url_for, abort
+from flask import Flask, g, render_template, flash, redirect, session, request, url_for, abort, Response
 from flask.ext.assets import Environment
 from datetime import datetime
+from functools import wraps
 
 
 # PREPARE {{{
@@ -35,25 +34,15 @@ if not app.config['DEBUG']:
 	@app.errorhandler(500)
 	def page_not_found(error):
 		return 'Server error', 500
-# }}}
 
 
-# Auth {{{
-from functools import wraps
-from flask import request, Response
-
-
+# Auth
 def check_auth(username, password):
-	"""
-	This function is called to check if a username /
-	password combination is valid.
-	"""
-	return username == app.config["LOGIN"] and password == app.config["PASSWORD"]
+	""" This function is called to check if a user + pass is valid """
+	return username == app.config["HTTP_AUTH_USER"] and password == app.config["HTTP_AUTH_PASS"]
 
 def authenticate():
-	"""
-	Sends a 401 response that enables basic auth
-	"""
+	""" Sends a 401 response that enables basic auth """
 	return Response(
 		'Could not verify your access level for that URL.', 401,
 		{'WWW-Authenticate': 'Basic realm="Login Required"'})
@@ -66,8 +55,6 @@ def requires_auth(f):
 			return authenticate()
 		return f(*args, **kwargs)
 	return decorated
-
-# }}}
 
 
 # VIEWS
@@ -281,23 +268,19 @@ def contacts():
 		mail.login(app.config['SMTP_LOGIN'], app.config['SMTP_PASSWORD'])
 
 		try:
-			mail.sendmail('noreply@gordio.pp.ua', ['gordio@ya.ru',], msg.as_string())
+			mail.sendmail('noreply@gordio.pp.ua', app.config['MSG_EMAILS'], msg.as_string())
 		except Exception:
 			flash("Unknown server error.", 'error')
 			mail.close()
 		else:
 			flash("Message sended.", 'success')
 			# записываем дату отправки
-			session['contacts_send_next_message_time'] = int(time.time()) + (60 * 15) # 15 минут
+			#session['contacts_send_next_message_time'] = int(time.time()) + (60 * 15) # 15 минут
 			mail.close()
 			return redirect(url_for('contacts'), code=302)
 
 	return render_template('contacts.html', form=form)
-# }}}
 
 
 if __name__ == '__main__':
 	app.run()
-
-
-# vim: set fdm=marker ts=4 sw=4 noet tw=100 fo-=t ff=unix:

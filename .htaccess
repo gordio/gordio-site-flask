@@ -1,12 +1,22 @@
+ErrorDocument 500 /_errors/500.html
+ErrorDocument 501 /_errors/501.html
+ErrorDocument 502 /_errors/502.html
+ErrorDocument 503 /_errors/503.html
+ErrorDocument 504 /_errors/504.html
+ErrorDocument 505 /_errors/505.html
+
+
 AddHandler cgi-script .py
 DirectoryIndex run.py
 
-RewriteEngine On
-#RewriteRule ^run.py/(.*)$ - [S=1]
-#RewriteRule ^(.*)$ run.py/$1 [QSA,L]
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ run.py/$1 [QSA,L]
+<IfModule mod_rewrite.c>
+    #Options +FollowSymlinks
+    RewriteEngine On
+    RewriteBase /
+    ##RewriteRule ^run.py/(.*)$ - [S=1]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ run.py/$1 [QSA,L]
+</IfModule>
 
 # COMPRESS
 <files *.js.gz>
@@ -17,16 +27,6 @@ RewriteRule ^(.*)$ run.py/$1 [QSA,L]
 	AddType "text/css" .gz
 	AddEncoding gzip .gz
 </files>
-# Check to see if browser can accept gzip files.
-ReWriteCond %{HTTP:accept-encoding} gzip
-RewriteCond %{HTTP_USER_AGENT} !Safari
-# Make sure there's no trailing .gz on the url
-ReWriteCond %{REQUEST_FILENAME} !^.+\.gz$
-# Check to see if a .gz version of the file exists.
-RewriteCond %{REQUEST_FILENAME}.gz -f
-# All conditions met so add .gz to URL filename (invisibly)
-RewriteRule ^(.+) $1.gz [QSA,L]
-
 
 # CACHING
 ExpiresActive On

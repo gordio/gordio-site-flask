@@ -9,11 +9,12 @@ _PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__)).replace('\\', '/')
 DEV_HOSTS = ('dev_hostname', 'dev_machine', 'other_machine', )
 
 # Administrator auth
-LOGIN = 'LOGIN'
-PASSWORD = 'PASSWORD'
+HTTP_AUTH_USER = 'LOGIN'
+HTTP_AUTH_PASS = 'PASSWORD'
 
 # Administrator for mailing errors
 ADMINS = ['mail@example.com']
+MSG_EMAILS = ADMINS
 
 # Site prefs
 SECRET_KEY = 'UNiQUE_KEY'
