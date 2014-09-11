@@ -5,7 +5,7 @@ from datetime import datetime
 from functools import wraps
 
 
-# PREPARE {{{
+# PREPARE
 app = Flask(__name__, static_url_path='')
 app.config.from_pyfile('config.py')
 
@@ -264,7 +264,7 @@ def contacts():
 			mail.close()
 		else:
 			flash("Message sended.", 'success')
-			#session['contacts_send_next_message_time'] = int(time.time()) + (60 * 15) # 15 минут
+			#session['contacts_send_next_message_time'] = int(time.time()) + (60 * 15) # 15 min
 			mail.close()
 			return redirect(url_for('contacts'), code=302)
 
