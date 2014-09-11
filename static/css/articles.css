@@ -19,8 +19,7 @@
 .article_detail h1.title {
     font-size: 2em;
     line-height: 1em;
-    margin: 0.25em 0;
-    margin-bottom: 0.25em;
+    margin: 0;
 }
 
 .article_detail blockquote {
