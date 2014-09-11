@@ -239,16 +239,21 @@ def contacts():
 	form = ContactForm(request.form)
 
 	if request.method == 'POST' and form.validate():
-		# send_time = session.get('contacts_send_next_message_time')
-		# if send_time > int(time.time()):
-		# 	flash("Very frequantly.", 'error')
-		# 	return render_template('contacts.html', **locals())
+		send_time = session.get('contacts_send_next_message_time') or 0
+		if send_time > int(time.time()):
+			flash("Very frequantly.", 'error')
+			return render_template('contacts.html', **locals())
 
 
 		from smtplib import SMTP
-		from email.MIMEText import MIMEText
+		try:
+			from email.MIMEText import MIMEText
+			msg = MIMEText(form.message.data.encode('UTF-8'), 'plain')
+		except:
+			from email.mime.text import MIMEText
+			msg = MIMEText(form.message.data, 'plain')
 
-		msg = MIMEText(form.message.data.encode('UTF-8'), 'plain')
+
 		msg.set_charset("UTF-8")
 		msg['Subject'] = "GWP: '%s'" % form.name.data
 		msg['From'] = form.email.data
@@ -264,7 +269,8 @@ def contacts():
 			mail.close()
 		else:
 			flash("Message sended.", 'success')
-			#session['contacts_send_next_message_time'] = int(time.time()) + (60 * 15) # 15 min
+			session['contacts_send_next_message_time'] = int(time.time()) + (60 * 15) # 15 min
+			session.modified = True
 			mail.close()
 			return redirect(url_for('contacts'), code=302)
 
