@@ -58,13 +58,6 @@ def requires_auth(f):
 
 
 # VIEWS
-@app.route('/stop/')
-def stop():
-	import random
-	# FIXME: Add resources
-	R = ['http://www.stopfake.org/', 'http://hrabro.com/63731']
-	return redirect(random.choice(R), code=302)
-
 @app.route('/')
 def vcard():
 	return render_template('vcard.html', **locals())
