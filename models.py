@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from flask.ext.sqlalchemy import SQLAlchemy
 import datetime
 from main import app
@@ -16,14 +14,14 @@ tags = db.Table('tags',
 
 
 class Article(db.Model):
-	id          = db.Column(db.Integer, primary_key=True)
-	title       = db.Column(db.String(100))
-	slug        = db.Column(db.String(80), unique=True)
+	id = db.Column(db.Integer, primary_key=True)
+	title = db.Column(db.String(100))
+	slug = db.Column(db.String(80), unique=True)
 	description = db.Column(db.Text)
-	content     = db.Column(db.Text)
-	tags        = db.relationship('Tag', secondary=tags, backref=db.backref('articles', lazy='dynamic'))
-	pub_date    = db.Column(db.DateTime)
-	upd_date    = db.Column(db.DateTime)
+	content = db.Column(db.Text)
+	tags = db.relationship('Tag', secondary=tags, backref=db.backref('articles', lazy='dynamic'))
+	pub_date = db.Column(db.DateTime)
+	upd_date = db.Column(db.DateTime)
 
 	def __init__(self, title, description, content, tags=None, slug=None, pub_date=None, upd_date=None):
 		self.title = title
@@ -75,10 +73,10 @@ class Tag(db.Model):
 
 
 class FeedBack(db.Model):
-	id        = db.Column(db.Integer, primary_key=True)
-	name      = db.Column(db.String(100))
-	email     = db.Column(db.String(100))
-	content   = db.Column(db.Text)
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(100))
+	email = db.Column(db.String(100))
+	content = db.Column(db.Text)
 	send_date = db.Column(db.DateTime)
 
 	def __init__(self, name, email, content, send_date=None):
@@ -96,6 +94,3 @@ class FeedBack(db.Model):
 	@classmethod
 	def send(cls, slug):
 		return cls.query.filter(cls.slug==slug)
-
-
-# vim: set fdm=marker fdc=0 ts=4 sw=4 tw=100 fo-=t ff=unix ft=python:

@@ -1,16 +1,15 @@
-#!/usr/bin/env python
 from flask import Flask, g, render_template, flash, redirect, session, request, url_for, abort, Response
 from flask.ext.assets import Environment
 from datetime import datetime
 from functools import wraps
 
 
-# PREPARE
+# --- PREPARE ---
 app = Flask(__name__, static_url_path='')
 app.config.from_pyfile('config.py')
 
 
-# TEMPLATE
+# --- TEMPLATE ---
 assets = Environment(app)
 assets.url = app.static_url_path
 
@@ -25,18 +24,19 @@ app.add_template_filter(timesince)
 def now_context():
 	return dict(now=datetime.now())
 
-# ERRORS
+
+# --- ERRORS ---
 if not app.config['DEBUG']:
 	@app.errorhandler(404)
 	def page_not_found(error):
 		return 'This page does not exist', 404
 
-	@app.errorhandler(500)
-	def page_not_found(error):
-		return 'Server error', 500
+	# @app.errorhandler(500)
+	# def page_not_found(error):
+	# 	return 'Server error', 500
 
 
-# Auth
+# --- AUTH ---
 def check_auth(username, password):
 	""" This function is called to check if a user + pass is valid """
 	return username == app.config["HTTP_AUTH_USER"] and password == app.config["HTTP_AUTH_PASS"]
@@ -57,7 +57,7 @@ def requires_auth(f):
 	return decorated
 
 
-# VIEWS
+# --- VIEWS ---
 @app.route('/')
 def vcard():
 	return render_template('vcard.html', **locals())
@@ -68,7 +68,7 @@ def about():
 	return render_template('about.html', **locals())
 
 
-# Articles {{{
+# Articles
 @app.route('/articles/view/<slug>/')
 def articles_view(slug):
 	""" Show article from <slug> or 404 """
@@ -215,10 +215,9 @@ def articles_tagged(tag_slug, page):
 	articles = tag.articles.filter(Article.pub_date < datetime.now())
 
 	return render_template('articles/list.html', **locals())
-# }}}
 
 
-# Contact Page {{{
+# Contact Page
 @app.route('/contacts/', methods=['GET', 'POST'])
 def contacts():
 	""" Render and processing contact form """
@@ -264,7 +263,3 @@ def contacts():
 			return redirect(url_for('contacts'), code=302)
 
 	return render_template('contacts.html', form=form)
-
-
-if __name__ == '__main__':
-	app.run()
