@@ -152,7 +152,7 @@ html, body {
 
 .vcard .profiles .github {
 	background: #CCC;
-	background-image: linear-gradient(#EEE, #CCC);
+	background-image: linear-gradient(#EEE, #DDD);
 }
 
 .vcard .profiles .stackoverflow {
@@ -168,6 +168,11 @@ html, body {
 .vcard .profiles .steam {
 	background: #666;
 	background-image: linear-gradient(#666, #555);
+}
+
+.vcard .profiles .hashcode {
+	background: #C3A676;
+	background-image: linear-gradient(#D3A656, #C39646);
 }
 
 
