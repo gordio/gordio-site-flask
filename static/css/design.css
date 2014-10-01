@@ -23,10 +23,10 @@ a:active {
 /* Pages */
 img.photo {
 	width: 100%;
-	border: 0.0625em solid rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(0, 0, 0, 0.2);
 
 	border-radius: 0.1875em;
-	box-shadow: 0 0.0625em 0.25em rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.3);
 }
 
 @media only screen and (min-width: 15em) and (max-width: 40.063em) and (orientation : landscape) {
