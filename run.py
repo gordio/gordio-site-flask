@@ -8,8 +8,7 @@ sys.path.append("/var/home/gordio/venv/lib/python2.6/site-packages")
 
 from wsgiref.handlers import CGIHandler
 from main import app
-from models import db # make sure to import
-
+from models import db
 
 
 

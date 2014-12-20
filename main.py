@@ -217,6 +217,16 @@ def articles_tagged(tag_slug, page):
 	return render_template('articles/list.html', **locals())
 
 
+# Works/Portfolio
+@app.route('/works/', methods=['GET'])
+def works_list():
+	""" Render portfolio """
+	from models import Work
+	works = Work.query.filter(Work.pub_date < datetime.now())\
+	.order_by(Work.pub_date.desc())
+	return render_template('works/list.html', **locals())
+
+
 # Contact Page
 @app.route('/contacts/', methods=['GET', 'POST'])
 def contacts():
